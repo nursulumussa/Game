@@ -56,4 +56,4 @@ foreach($kind in @('runtime','editor')){
 $checks.Add('NOT RUN: Unity scene import, Play Mode, Android build, phone playtest, frame rate and visual QA.')
 $checks.Add('Background Unity launch failed connecting to its license client; no APK is claimed.')
 $report="Verification: $(Get-Date -Format o)`n"+($checks -join "`n")+"`n"
-[IO.File]::WriteAllText("$project\Documentation\VERIFICATION.txt",$report,[Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText((Join-Path $scratch 'VERIFICATION.txt'),$report,[Text.UTF8Encoding]::new($false))
