@@ -1,0 +1,28 @@
+Project: Mountain Adventure
+Student: Musa Nursulu
+Assignment: Assignment 10 - Three Enemy Types
+Date: 2026-11-12
+Tools: ChatGPT chat and Codex agent
+
+Learning support:
+- Explained finite state machines, Physics2D.Raycast, viewing angles, layers, waypoints, attack timing and player health.
+- Provided an initial EnemyPatrol example in chat; the student inserted it and configured references and layers in Unity.
+- Guided the student through creating and displaying enemy state labels.
+
+Agent implementation under the revised assignment rules:
+- Edited visual scene objects for platforms, enemies, pickups and the portal.
+- Reworked EnemyPatrol and created EnemyAgent2D, EnemyShooter2D, EnemyCharger2D, EnemyProjectile2D, EnemyHealth2D and EnemyTrialSession.
+- Added the EnemyTrial scene with three different enemy behaviours, serialized settings, warning effects and waypoint routes.
+- Updated player-bullet blocking and the main-menu scene transition; added an Android build menu.
+- Fixed overlapping HUD text after reviewing the student's runtime screenshot.
+- Prepared a script map and assisted with Git commits, GitHub upload instructions and the English video script.
+- Converted the student's two MOV recordings to MP4 without re-encoding their video or audio streams.
+
+Verification and student work:
+- Separate C# compilation and serialized scene-reference checks passed.
+- The agent's background Unity launch failed while connecting to its license client; the agent did not verify an APK build.
+- The student reported working state changes, shared a screenshot of the three-enemy level running, and later reported the Android application opening EnemyTrial.
+- The student configured Unity, uploaded the repository and prepared recordings/submission files. Recording a script does not replace understanding the implementation.
+- The agent did not conduct human playtests or invent attempt counts. Actual tester results and two post-playtest old/new parameter values have not been supplied in this conversation.
+
+The required decision summary is kept separately in DECISIONS.md.
