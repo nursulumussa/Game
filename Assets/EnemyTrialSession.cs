@@ -9,6 +9,8 @@ public class EnemyTrialSession : MonoBehaviour
     public TMP_Text template;
     public string objective = "3 COINS + EXIT | FIRE defeats enemies | JUMP dodges attacks";
     public float hudFontSize = 24f;
+    public float counterFontSize = 32f;
+    public float hudInset = 24f;
     [Header("Keep the complete arena visible on phones and tablets")]
     public float minimumCameraHalfWidth = 8.4f;
     public float minimumCameraHalfHeight = 5f;
@@ -35,18 +37,39 @@ public class EnemyTrialSession : MonoBehaviour
             }
         }
         if (template == null) return;
+        CoinCounter counter = FindFirstObjectByType<CoinCounter>();
+        if (counter != null && counter.coinText != null)
+            PlaceCounter(counter.coinText, false);
+        PlaceCounter(template, true);
         TMP_Text title = Instantiate(template, template.transform.parent);
         title.name = "TrialObjective";
         title.text = "ENEMY TRAIL  /  TRY " + attempts + "\n" + objective;
         title.fontSize = hudFontSize;
-        title.alignment = TextAlignmentOptions.Center;
+        title.enableAutoSizing = false;
+        title.alignment = TextAlignmentOptions.Top;
+        title.textWrappingMode = TextWrappingModes.Normal;
         title.color = new Color(0.06f, 0.18f, 0.22f);
         title.raycastTarget = false;
         RectTransform rect = title.rectTransform;
-        rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 1f);
+        rect.anchorMin = new Vector2(0.24f, 1f);
+        rect.anchorMax = new Vector2(0.76f, 1f);
         rect.pivot = new Vector2(0.5f, 1f);
         rect.anchoredPosition = new Vector2(0f, -18f);
-        rect.sizeDelta = new Vector2(1000f, 80f);
+        rect.sizeDelta = new Vector2(0f, 110f);
+    }
+    void PlaceCounter(TMP_Text text, bool right)
+    {
+        text.fontSize = counterFontSize;
+        text.enableAutoSizing = false;
+        text.alignment = right ? TextAlignmentOptions.TopRight : TextAlignmentOptions.TopLeft;
+        text.color = new Color(0.06f, 0.18f, 0.22f);
+        text.raycastTarget = false;
+        RectTransform rect = text.rectTransform;
+        rect.anchorMin = new Vector2(right ? 0.78f : 0f, 1f);
+        rect.anchorMax = new Vector2(right ? 1f : 0.22f, 1f);
+        rect.pivot = new Vector2(right ? 1f : 0f, 1f);
+        rect.anchoredPosition = new Vector2(right ? -hudInset : hudInset, -18f);
+        rect.sizeDelta = new Vector2(-hudInset, 60f);
     }
     public static void ResetAttempts() { attempts = 0; }
 }
