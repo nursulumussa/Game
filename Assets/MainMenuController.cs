@@ -6,7 +6,8 @@ public class MainMenuController : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level1");
+        EnemyTrialSession.ResetAttempts();
+        SceneManager.LoadScene("EnemyTrial");
     }
 
     public void QuitGame()

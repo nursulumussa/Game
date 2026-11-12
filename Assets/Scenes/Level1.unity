@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5821e1322bc514e92453bca14c1434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Portal
-  nextScene: Level2
+  nextScene: EnemyTrial
   coinCounter: {fileID: 541033772}
 --- !u!61 &1154983082
 BoxCollider2D:

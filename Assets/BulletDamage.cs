@@ -4,6 +4,13 @@ using UnityEngine;
 public class BulletDamage : MonoBehaviour
 {
     public int damage = 1;
+    public LayerMask blockingLayers;
+
+    void Awake()
+    {
+        if (blockingLayers.value == 0)
+            blockingLayers = LayerMask.GetMask("Ground", "Obstacle");
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,6 +19,10 @@ public class BulletDamage : MonoBehaviour
         if (boss != null)
         {
             boss.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if ((blockingLayers.value & (1 << other.gameObject.layer)) != 0)
+        {
             Destroy(gameObject);
         }
     }
