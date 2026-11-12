@@ -1,0 +1,14 @@
+Verification: 2026-11-12T08:45:01.1736786+05:00
+PASS: 411 scene IDs are unique
+PASS: Every local scene reference resolves
+PASS: EnemyPatrol: separate FSM with 6 states
+PASS: EnemyShooter2D: separate FSM with 4 states
+PASS: EnemyCharger2D: separate FSM with 5 states
+PASS: All three attacks have valid serialized wind-up, cooldown, references and masks
+PASS: Four explicit patrol waypoints are serialized in the level
+PASS: Menu, build list and goal route are connected
+PASS: Shooter references its projectile prefab
+PASS: runtime C# compilation against the installed Unity/package assemblies
+PASS: editor C# compilation against the installed Unity/package assemblies
+NOT RUN: Unity scene import, Play Mode, Android build, phone playtest, frame rate and visual QA.
+Background Unity launch failed connecting to its license client; no APK is claimed.

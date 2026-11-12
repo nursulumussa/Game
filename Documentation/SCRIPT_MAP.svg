@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="980" viewBox="0 0 1440 980">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#607b8b" stroke-width="1.5"/></marker></defs>
+<rect width="1440" height="980" rx="28" fill="#eef5f4"/>
+<g font-family="Arial, sans-serif" fill="#183740">
+<text x="60" y="70" font-size="35" font-weight="700">MOUNTAIN ADVENTURE / THREE ENEMY TYPES</text>
+<text x="60" y="108" font-size="20" fill="#4f6d77">Shared tools. Three different decisions. Every attack has a warning and recovery.</text>
+<rect x="330" y="150" width="780" height="115" rx="16" fill="#183740"/>
+<text x="720" y="194" text-anchor="middle" fill="white" font-size="27" font-weight="700">EnemyAgent2D</text>
+<text x="720" y="232" text-anchor="middle" fill="#d0e5e4" font-size="20">Distance + angle + Raycast / screen checks / waypoint safety / warning flash</text>
+<g stroke="#607b8b" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M720 265V293H260V320"/><path d="M720 265V320"/><path d="M720 265V293H1180V320"/></g>
+<rect x="60" y="325" width="400" height="232" rx="16" fill="#d7e8ce" stroke="#7f9f69"/>
+<rect x="520" y="325" width="400" height="232" rx="16" fill="#d0e5f6" stroke="#729fbd"/>
+<rect x="980" y="325" width="400" height="232" rx="16" fill="#f9e4c7" stroke="#c39756"/>
+<g font-size="26" font-weight="700" text-anchor="middle"><text x="260" y="367">EnemyPatrol</text><text x="720" y="367">EnemyShooter2D</text><text x="1180" y="367">EnemyCharger2D</text></g>
+<g font-size="20" text-anchor="middle"><text x="260" y="410">Patrol → Chase → WindUp</text><text x="260" y="447">Attack → Recover → Return</text><text x="260" y="503">Follows you; one melee hit</text><text x="720" y="410">Scan → Aim → Shoot</text><text x="720" y="447">→ Cooldown → Scan</text><text x="720" y="503">Stays still; locks its shot</text><text x="1180" y="410">Patrol → WindUp → Dash</text><text x="1180" y="447">Recover → Return → Patrol</text><text x="1180" y="503">Commits; cannot steer</text></g>
+<g stroke="#607b8b" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M720 557V610"/><path d="M260 557V770H550"/><path d="M1180 557V770H890"/><path d="M720 702V725"/></g>
+<rect x="520" y="615" width="400" height="88" rx="14" fill="#fff" stroke="#729fbd"/>
+<text x="720" y="649" text-anchor="middle" font-size="24" font-weight="700">EnemyProjectile2D</text><text x="720" y="679" text-anchor="middle" font-size="18">CircleCast: walls + player / lifetime</text>
+<rect x="555" y="730" width="330" height="95" rx="14" fill="#183740"/>
+<text x="720" y="769" text-anchor="middle" fill="white" font-size="25" font-weight="700">PlayerHealth</text><text x="720" y="800" text-anchor="middle" fill="#d0e5e4" font-size="19">HP / blinking / invulnerability</text>
+<rect x="60" y="862" width="500" height="70" rx="13" fill="#fff" stroke="#7f9f69"/>
+<text x="310" y="904" text-anchor="middle" font-size="22">Player Shooter + BulletDamage</text>
+<path d="M560 897H650" fill="none" stroke="#607b8b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="660" y="862" width="720" height="70" rx="13" fill="#fff" stroke="#7f9f69"/>
+<text x="1020" y="904" text-anchor="middle" font-size="22">EnemyHealth2D → defeat any of the three types</text>
+</g></svg>
