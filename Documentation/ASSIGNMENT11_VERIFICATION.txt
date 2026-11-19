@@ -1,0 +1,128 @@
+Mountain Adventure — Assignment 10 + Assignment 11
+Date: 2026-11-19
+Project: C:/workspace/MountainAdventure
+Result: PASS
+Integration checks: 104
+APK signature: verified (v2)
+APK integrity: verified
+Architectures: arm64-v8a, armeabi-v7a
+Package: com.DefaultCompany.urp_2d (existing identity retained)
+Minimum SDK: 25; target SDK: 36
+APK bytes: 76397417
+SHA-256: b34974e389e3e9162cc7a0b8881cb21556d410029f921a0335d3f648dda8d957
+HUD freshness: current contrast badge detected in APK metadata
+Existing Patroller/Shooter/Charger types detected in APK metadata
+
+Checks:
+Three LevelData assets reference the existing campaign scenes
+Original Level1/2/3 names and scene routes retained
+Assignment 10 EnemyTrial remains accessible
+No replacement Gameplay scene created
+Missing save restores defaults
+Invalid save restores defaults: {broken
+Invalid save restores defaults: {}
+Invalid save restores defaults: null
+Invalid save restores defaults: []
+Invalid save restores defaults: {"version":99}
+Invalid save restores defaults: 
+JSON writes successfully
+Progress, score and settings survive a disk round trip
+Unknown level IDs rejected
+Nonfinite volume rejected
+Write failure handled without an exception
+LevelData has spawn bindings and timer: Level1
+Spawn bindings are unique: Level1
+LevelData has spawn bindings and timer: Level2
+Spawn bindings are unique: Level2
+LevelData has spawn bindings and timer: Level3
+Spawn bindings are unique: Level3
+LevelData has spawn bindings and timer: EnemyTrial
+Spawn bindings are unique: EnemyTrial
+Original MainMenu starts normally
+Existing Level1 runs directly with its LevelData
+Player retained in Level1
+Existing Input System retained in Level1
+Mobile JUMP/FIRE retained in Level1
+Original spawn object resolves: Level1/Player
+Original spawn object resolves: Level1/Coin1
+Original spawn object resolves: Level1/Coin2
+Original spawn object resolves: Level1/Coin3
+Live data asset change updates actual player motion
+Original shooting creates bullet physics safely
+Data goal is ready for the original portal: Level1
+Original portal retained in Level1
+Existing Level2 runs directly with its LevelData
+Player retained in Level2
+Existing Input System retained in Level2
+Mobile JUMP/FIRE retained in Level2
+Original spawn object resolves: Level2/Enemy
+Original spawn object resolves: Level2/Player
+Original spawn object resolves: Level2/Coin1
+Original spawn object resolves: Level2/Coin2
+Original spawn object resolves: Level2/Coin3
+Original spawn object resolves: Level2/HealthPickup
+Original Level1 portal unlocks and opens Level2
+Data goal is ready for the original portal: Level2
+Original portal retained in Level2
+Existing Level3 runs directly with its LevelData
+Player retained in Level3
+Existing Input System retained in Level3
+Mobile JUMP/FIRE retained in Level3
+Original spawn object resolves: Level3/Player
+Original spawn object resolves: Level3/Coin1
+Original spawn object resolves: Level3/Coin2
+Original spawn object resolves: Level3/Coin3
+Original spawn object resolves: Level3/Enemy
+Original spawn object resolves: Level3/HealthPickup
+Original spawn object resolves: Level3/Boss
+Original Level2 portal unlocks and opens Level3
+Original boss uses its balance asset
+Original boss completion reaches the original WinScene and saves all levels
+Completion and pause flush progress and settings
+Reset Cancel preserves progress
+Confirmed reset restores defaults and the original menu
+Assignment 10 EnemyTrial still starts
+All three existing enemy types are retained
+Original enemy state labels remain above the enemies
+Existing decorated ground retained
+Trial mobile controls retained
+Asset-backed fair wind-up and recovery: EnemyCharger2D
+Clear line of sight works: EnemyCharger2D
+Wall blocks sight: EnemyCharger2D
+Off-screen attacks blocked: EnemyCharger2D
+Charger commits after warning
+Charger enters Dash after wind-up
+Charger ends its dash using data duration
+Charger returns after recovery
+Charger completes its original FSM loop
+Asset-backed fair wind-up and recovery: EnemyShooter2D
+Clear line of sight works: EnemyShooter2D
+Wall blocks sight: EnemyShooter2D
+Off-screen attacks blocked: EnemyShooter2D
+Shooter locks aim
+Shooter waits for its wind-up
+Shooter fires its original projectile and cools down
+Shooter completes its original FSM loop
+Asset-backed fair wind-up and recovery: EnemyPatrol
+Clear line of sight works: EnemyPatrol
+Wall blocks sight: EnemyPatrol
+Off-screen attacks blocked: EnemyPatrol
+Patroller enters Chase
+Patroller warns before attack
+Patroller waits for data wind-up
+Patroller recovers after one attack
+Patroller returns after cooldown
+Patroller resumes patrol after returning without seeing the player
+Data goal is ready for the original portal: EnemyTrial
+Original portal retained in EnemyTrial
+Trial exit keeps its original route without altering campaign unlocks
+Data timer shows retry without crashing
+No runtime errors during integration checks
+
+Preservation: 1139 original geometry/visual/component blocks and 132 original tuning values. See SCENE_PRESERVATION.txt.
+World-label RectTransform anchoring was corrected to keep intended placement.
+Original FSM Update bodies retain their logic, with an added pause guard.
+
+Not performed: physical phone installation/restart/playtest, student voice recording, Inspector screenshot, remote publishing or Canvas submission.
+Runtime checks use synthetic movement, completion, damage and manual FSM updates. PNGs are actual Unity renders, not phone screenshots.
+The pre-test Editor save was restored byte for byte.
