@@ -123,6 +123,7 @@ Preservation: 1139 original geometry/visual/component blocks and 132 original tu
 World-label RectTransform anchoring was corrected to keep intended placement.
 Original FSM Update bodies retain their logic, with an added pause guard.
 
-Not performed: physical phone installation/restart/playtest, student voice recording, Inspector screenshot, remote publishing or Canvas submission.
+Live Inspector screenshot: captured from the correct Unity Editor project (PlayerStats-inspector.png).
+Not performed: physical phone installation/restart/playtest, student voice recording, remote publishing or Canvas submission.
 Runtime checks use synthetic movement, completion, damage and manual FSM updates. PNGs are actual Unity renders, not phone screenshots.
 The pre-test Editor save was restored byte for byte.
