@@ -2,16 +2,17 @@ Mountain Adventure — Assignment 10 + Assignment 11
 Date: 2026-11-19
 Project: C:/workspace/MountainAdventure
 Result: PASS
-Integration checks: 104
+Integration checks: 118
 APK signature: verified (v2)
 APK integrity: verified
 Architectures: arm64-v8a, armeabi-v7a
 Package: com.DefaultCompany.urp_2d (existing identity retained)
 Minimum SDK: 25; target SDK: 36
-APK bytes: 76397417
-SHA-256: b34974e389e3e9162cc7a0b8881cb21556d410029f921a0335d3f648dda8d957
+APK bytes: 76397441
+SHA-256: 6534162fc1ddd80638f217c5315a908ea4ddd1b989889eb3b17c623bc3304416
 HUD freshness: current contrast badge detected in APK metadata
 Existing Patroller/Shooter/Charger types detected in APK metadata
+Campaign: Level1 -> Level2 -> Level3 -> EnemyTrial -> WinScene; separate practice and saved finale resume verified
 
 Checks:
 Three LevelData assets reference the existing campaign scenes
@@ -30,6 +31,9 @@ Progress, score and settings survive a disk round trip
 Unknown level IDs rejected
 Nonfinite volume rejected
 Write failure handled without an exception
+Existing version-1 saves remain compatible without finale fields
+Pending finale is valid persistent progress
+Contradictory finale flags safely restore defaults
 LevelData has spawn bindings and timer: Level1
 Spawn bindings are unique: Level1
 LevelData has spawn bindings and timer: Level2
@@ -77,32 +81,15 @@ Original spawn object resolves: Level3/HealthPickup
 Original spawn object resolves: Level3/Boss
 Original Level2 portal unlocks and opens Level3
 Original boss uses its balance asset
-Original boss completion reaches the original WinScene and saves all levels
-Completion and pause flush progress and settings
-Reset Cancel preserves progress
-Confirmed reset restores defaults and the original menu
-Assignment 10 EnemyTrial still starts
+Level3 boss automatically opens EnemyTrial as the campaign finale
+Winning Level3 does not finish the campaign before EnemyTrial
+Pending finale, progress and settings survive disk reload and pause
+Returning to the menu preserves the pending finale
+Separate practice entry remains independent of campaign mode
 All three existing enemy types are retained
 Original enemy state labels remain above the enemies
 Existing decorated ground retained
 Trial mobile controls retained
-Asset-backed fair wind-up and recovery: EnemyCharger2D
-Clear line of sight works: EnemyCharger2D
-Wall blocks sight: EnemyCharger2D
-Off-screen attacks blocked: EnemyCharger2D
-Charger commits after warning
-Charger enters Dash after wind-up
-Charger ends its dash using data duration
-Charger returns after recovery
-Charger completes its original FSM loop
-Asset-backed fair wind-up and recovery: EnemyShooter2D
-Clear line of sight works: EnemyShooter2D
-Wall blocks sight: EnemyShooter2D
-Off-screen attacks blocked: EnemyShooter2D
-Shooter locks aim
-Shooter waits for its wind-up
-Shooter fires its original projectile and cools down
-Shooter completes its original FSM loop
 Asset-backed fair wind-up and recovery: EnemyPatrol
 Clear line of sight works: EnemyPatrol
 Wall blocks sight: EnemyPatrol
@@ -113,9 +100,37 @@ Patroller waits for data wind-up
 Patroller recovers after one attack
 Patroller returns after cooldown
 Patroller resumes patrol after returning without seeing the player
+Asset-backed fair wind-up and recovery: EnemyShooter2D
+Clear line of sight works: EnemyShooter2D
+Wall blocks sight: EnemyShooter2D
+Off-screen attacks blocked: EnemyShooter2D
+Shooter locks aim
+Shooter waits for its wind-up
+Shooter fires its original projectile and cools down
+Shooter completes its original FSM loop
+Asset-backed fair wind-up and recovery: EnemyCharger2D
+Clear line of sight works: EnemyCharger2D
+Wall blocks sight: EnemyCharger2D
+Off-screen attacks blocked: EnemyCharger2D
+Charger commits after warning
+Charger enters Dash after wind-up
+Charger ends its dash using data duration
+Charger returns after recovery
+Charger completes its original FSM loop
 Data goal is ready for the original portal: EnemyTrial
 Original portal retained in EnemyTrial
-Trial exit keeps its original route without altering campaign unlocks
+Finishing practice does not consume the pending campaign finale
+Continue finale restores campaign mode from saved progress
+Retry preserves finale mode and progress
+Data goal is ready for the original portal: EnemyTrial
+Original portal retained in EnemyTrial
+Victory follows the full Level1-Level2-Level3-EnemyTrial sequence
+Full campaign completion survives disk reload
+Reset Cancel preserves campaign completion
+Confirmed reset clears levels and finale flags
+Data goal is ready for the original portal: EnemyTrial
+Original portal retained in EnemyTrial
+Fresh practice does not unlock or finish the campaign
 Data timer shows retry without crashing
 No runtime errors during integration checks
 
@@ -123,7 +138,6 @@ Preservation: 1139 original geometry/visual/component blocks and 132 original tu
 World-label RectTransform anchoring was corrected to keep intended placement.
 Original FSM Update bodies retain their logic, with an added pause guard.
 
-Live Inspector screenshot: captured from the correct Unity Editor project (PlayerStats-inspector.png).
 Not performed: physical phone installation/restart/playtest, student voice recording, remote publishing or Canvas submission.
 Runtime checks use synthetic movement, completion, damage and manual FSM updates. PNGs are actual Unity renders, not phone screenshots.
 The pre-test Editor save was restored byte for byte.
