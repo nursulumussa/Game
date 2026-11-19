@@ -14,3 +14,5 @@
 - 2026-11-19 — Moved the existing player, weapon, item and all three enemy FSM tuning values into ScriptableObjects. Original FSM Update bodies remain unchanged except for a pause guard. Restored world-label anchoring during Unity serialization.
 - 2026-11-19 — Campaign progression now comes from LevelData.nextLevelId: Level1 → Level2 → Level3 → WinScene. The old Level1 portal pointed to EnemyTrial, which remains accessible separately from level select.
 - 2026-11-19 — Added validated JSON saves, settings, pause/completion saving and confirmed reset. Automated checks cover original scenes, three actual FSM cycles, wall occlusion, off-screen fairness and save failure cases; real phone testing and the student video are still required.
+
+- 2026-11-19 — At the student's request, connected the complete campaign as Level1 → Level2 → Level3 → EnemyTrial → WinScene. Kept a separate practice entry, added persistent unfinished/completed finale flags without breaking existing version-1 saves, and added transition/resume/retry/practice-isolation checks.

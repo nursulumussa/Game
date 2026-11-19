@@ -98,7 +98,7 @@ public static class Assignment11Integration
             if(isTrial)trial=level;else levels.Add(level);
         }
         var config=ScriptableObject.CreateInstance<GameData>();config.player=player;config.items=items;config.defaultEnemy=fallback;config.enemyProjectileRadius=0.1f;
-        config.levels=levels.OrderBy(l=>l.id).ToArray();config.enemyTrial=trial;config.defaultMaster=1;config.defaultMusic=0.8f;config.defaultSfx=0.8f;config.menuScene="MainMenu";config.winScene="WinScene";
+        config.levels=levels.OrderBy(l=>l.id).ToArray();config.enemyTrial=trial;config.trialAfterCampaign=true;config.defaultMaster=1;config.defaultMusic=0.8f;config.defaultSfx=0.8f;config.menuScene="MainMenu";config.winScene="WinScene";
         AssetDatabase.CreateAsset(config,"Assets/Resources/GameData.asset");
         var buildScenes=EditorBuildSettings.scenes.ToList();
         foreach(string name in new[]{"MainMenu","Level1","Level2","Level3","EnemyTrial","WinScene"})
@@ -121,10 +121,17 @@ public static class Assignment11Integration
         Selection.activeObject=GameData.Current.player;
         EditorGUIUtility.PingObject(Selection.activeObject);
     }
+    public static void OpenCampaignForReview()
+    {
+        if(EditorApplication.isPlaying)throw new InvalidOperationException("Stop Play Mode before opening the campaign.");
+        EditorSceneManager.OpenScene("Assets/Scenes/MainMenu.unity");
+        Selection.activeObject=GameData.Current;
+    }
     public static void FinalizeData()
     {
         original=JsonUtility.FromJson<CaptureFile>(File.ReadAllText("Assets/Editor/Assignment11OriginalBalance.json"));
         var config=GameData.Current;
+        config.trialAfterCampaign=true;EditorUtility.SetDirty(config);
         for(int i=0;i<config.levels.Length;i++)
         {
             config.levels[i].nextLevelId=i+1<config.levels.Length?config.levels[i+1].id:0;

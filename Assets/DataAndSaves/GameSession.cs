@@ -16,8 +16,11 @@ public class GameSession : MonoBehaviour
     public bool Playing {get;private set;}
     public AdventureUI UI {get;private set;}
     public bool IsTrial => Level!=null && Level==Config.enemyTrial;
+    public bool IsCampaignTrial => IsTrial && campaignTrial;
+    public bool CanEnterFinale => Config.trialAfterCampaign && Save.completedLevels.Contains(Config.levels[Config.levels.Length-1].id);
     public bool GoalMet => Level!=null && (Level.goal==LevelGoal.Boss?bossDefeated:Coins>=Level.requiredCoins);
     bool bossDefeated;
+    bool campaignTrial;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Bootstrap()
@@ -39,6 +42,7 @@ public class GameSession : MonoBehaviour
         Time.timeScale=1;Playing=false;Coins=0;bossDefeated=false;
         Level=Array.Find(Config.levels,l=>l.sceneName==scene.name);
         if(Level==null && Config.enemyTrial!=null && Config.enemyTrial.sceneName==scene.name)Level=Config.enemyTrial;
+        if(!IsTrial)campaignTrial=false;
         if(Level!=null)
         {
             Level.Apply(scene);Remaining=Level.timeLimit;Playing=true;UI.ShowGame();
@@ -60,7 +64,17 @@ public class GameSession : MonoBehaviour
     }
     public void StartTrial()
     {
-        EnemyTrialSession.ResetAttempts();Time.timeScale=1;SceneManager.LoadScene(Config.enemyTrial.sceneName);
+        LoadTrial(false);
+    }
+    void LoadTrial(bool finale)
+    {
+        campaignTrial=finale;EnemyTrialSession.ResetAttempts();Time.timeScale=1;SceneManager.LoadScene(Config.enemyTrial.sceneName);
+    }
+    public void ContinueFinalTrial()
+    {
+        if(!CanEnterFinale)return;
+        Save.campaignTrialPending=!Save.campaignCompleted;
+        Persist();LoadTrial(true);
     }
     public void Retry() {if(Level!=null){Time.timeScale=1;SceneManager.LoadScene(Level.sceneName);}}
     public void Menu() {Persist();Time.timeScale=1;SceneManager.LoadScene(Config.menuScene);}
@@ -83,8 +97,16 @@ public class GameSession : MonoBehaviour
             int index=Array.IndexOf(Config.levels,Level);
             if(index+1<Config.levels.Length && !Save.unlockedLevels.Contains(Config.levels[index+1].id))Save.unlockedLevels.Add(Config.levels[index+1].id);
         }
-        Persist();
         var next=IsTrial?null:Array.Find(Config.levels,l=>l.id==Level.nextLevelId);
+        if(IsCampaignTrial)
+        {
+            Save.campaignTrialPending=false;Save.campaignCompleted=true;
+        }
+        if(!IsTrial && next==null && Config.trialAfterCampaign)
+        {
+            ContinueFinalTrial();return;
+        }
+        Persist();
         if(next!=null && Save.unlockedLevels.Contains(next.id))StartLevel(next.id);
         else {Time.timeScale=1;SceneManager.LoadScene(Config.winScene);}
     }

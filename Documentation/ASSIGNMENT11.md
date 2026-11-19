@@ -2,16 +2,16 @@
 
 Project: `C:/workspace/MountainAdventure`, Unity 6000.3.24f1.
 
-Open `Assets/Scenes/MainMenu.unity`. The original menu artwork and Quit button remain. Play opens the added level select. Level1, Level2 and Level3 remain separate authored scenes; their original objects, ground artwork, platforms, colliders and input components are retained. There is no replacement Gameplay scene. EnemyTrial remains available through **Enemy Trial / Assignment 10**.
+Open `Assets/Scenes/MainMenu.unity`. The original menu artwork and Quit button remain. Play opens the added level select. The campaign order is **Level1 → Level2 → Level3 → EnemyTrial → WinScene**. Level1, Level2 and Level3 remain separate authored scenes; their original objects, ground artwork, platforms, colliders and input components are retained. There is no replacement Gameplay scene. EnemyTrial is the campaign finale and is also available independently through **EnemyTrial / Practice**.
 
 ## How to play
 
 - Level 1: collect three coins and enter the original portal.
 - Level 2: collect three coins and enter the original portal.
-- Level 3: defeat the original boss. Its original boss-to-WinScene goal is retained; coins are optional for score.
-- Enemy Trial: the original Patroller, Shooter and Charger with their FSMs, warnings, state labels and projectiles. Collect three coins and enter the exit. Practice does not unlock campaign levels.
+- Level 3: defeat the original boss. After the boss, EnemyTrial starts automatically as the finale; coins are optional for score.
+- Enemy Trial: the original Patroller, Shooter and Charger with their FSMs, warnings, state labels and projectiles. Collect three coins and enter the exit. The finale completes the campaign only after its exit. Practice remains independent and does not unlock or complete campaign levels.
 
-Campaign progression is now configured in LevelData: 1 → 2 → 3 → WinScene. This intentionally supersedes the legacy Level1 portal's EnemyTrial link and the legacy Level3 portal's Level2 link. The original portal objects and serialized legacy fields remain; edit `nextLevelId` in LevelData for campaign routing.
+Campaign progression is configured by LevelData.nextLevelId for levels 1–3 and GameData.trialAfterCampaign for the EnemyTrial finale: 1 → 2 → 3 → EnemyTrial → WinScene. This intentionally supersedes the legacy Level1 portal's EnemyTrial link and the legacy Level3 portal's Level2 link. The original portal objects and serialized legacy fields remain; edit `nextLevelId` in LevelData for campaign routing.
 
 ## Data assets
 
@@ -31,7 +31,7 @@ Do not run Prepare data again to rebalance. It refuses to overwrite an initializ
 
 ## Save system
 
-SaveStore writes `save.json` in `Application.persistentDataPath`. It stores format/version, best score, last selected campaign level, unlocked/completed campaign lists and master/music/SFX settings. Completing a level, selecting a campaign level, changing settings, application pause, focus loss and quit flush the save. A fresh level run starts from its data spawn configuration; in-level position is not persisted.
+SaveStore writes `save.json` in `Application.persistentDataPath`. It stores format/version, best score, last selected campaign level, unlocked/completed campaign lists and master/music/SFX settings, campaignTrialPending and campaignCompleted. Completing a level, selecting a campaign level, changing settings, application pause, focus loss and quit flush the save. A fresh level run starts from its data spawn configuration; in-level position is not persisted. An unfinished finale is saved, so Continue finale / EnemyTrial resumes that stage from its beginning after reopening. Practice does not consume a pending finale. Existing version-1 saves without the new flags remain compatible.
 
 Missing, malformed, oversized or schema-invalid JSON restores defaults. Unknown/duplicate IDs and invalid volumes are rejected. Writes flush a temporary file before replacement; unsupported File.Replace platforms use a copy fallback. I/O errors are reported without crashing. Reset asks for confirmation; Cancel preserves progress. Best score is the highest single-run score, including practice.
 

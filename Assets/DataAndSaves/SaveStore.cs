@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable] public class SaveData {
     public string format;
     public int version, bestScore, lastLevel;
+    public bool campaignTrialPending, campaignCompleted;
     public List<int> unlockedLevels, completedLevels;
     public SavedSettings settings;
 }
@@ -39,6 +40,8 @@ public static class SaveStore {
         if(unlocked.Count!=d.unlockedLevels.Count || completed.Count!=d.completedLevels.Count) return false;
         foreach(int id in unlocked) if(!Known(id,c)) return false;
         foreach(int id in completed) if(!Known(id,c) || !unlocked.Contains(id)) return false;
+        if(d.campaignTrialPending && d.campaignCompleted) return false;
+        if((d.campaignTrialPending || d.campaignCompleted) && !completed.Contains(c.levels[c.levels.Length-1].id)) return false;
         return true;
     }
     public static bool Write(string path, SaveData data, out string status) {

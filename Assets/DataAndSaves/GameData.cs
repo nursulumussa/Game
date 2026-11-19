@@ -6,6 +6,7 @@ public class GameData : ScriptableObject
     public ItemValues items;
     public LevelData[] levels;
     public LevelData enemyTrial;
+    public bool trialAfterCampaign;
     public EnemyStats defaultEnemy;
     public float enemyProjectileRadius;
     [Range(0,1)] public float defaultMaster, defaultMusic, defaultSfx;

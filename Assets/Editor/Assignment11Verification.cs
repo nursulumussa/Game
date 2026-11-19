@@ -59,6 +59,15 @@ public static class Assignment11Verification
             loaded.unlockedLevels.Add(99);SaveStore.Write(path,loaded,out _);Check(SaveStore.Load(path,c,out _).unlockedLevels.Count==1,"Unknown level IDs rejected");
             d.settings.sfx=float.NaN;SaveStore.Write(path,d,out _);Check(SaveStore.Load(path,c,out _).bestScore==0,"Nonfinite volume rejected");
             Check(!SaveStore.Write(Path.Combine(path,"blocked.json"),d,out _),"Write failure handled without an exception");
+            var legacy=SaveStore.Defaults(c);legacy.bestScore=42;
+            string legacyJson=JsonUtility.ToJson(legacy).Replace(",\"campaignTrialPending\":false","").Replace(",\"campaignCompleted\":false","");
+            File.WriteAllText(path,legacyJson);var migrated=SaveStore.Load(path,c,out _);
+            Check(migrated.bestScore==42 && !migrated.campaignTrialPending && !migrated.campaignCompleted,"Existing version-1 saves remain compatible without finale fields");
+            var finaleSave=SaveStore.Defaults(c);foreach(var level in c.levels){if(!finaleSave.unlockedLevels.Contains(level.id))finaleSave.unlockedLevels.Add(level.id);finaleSave.completedLevels.Add(level.id);}
+            finaleSave.campaignTrialPending=true;SaveStore.Write(path,finaleSave,out _);
+            Check(SaveStore.Load(path,c,out _).campaignTrialPending,"Pending finale is valid persistent progress");
+            finaleSave.campaignCompleted=true;SaveStore.Write(path,finaleSave,out _);
+            Check(SaveStore.Load(path,c,out _).completedLevels.Count==0,"Contradictory finale flags safely restore defaults");
             foreach(var level in c.levels.Concat(new[]{c.enemyTrial}))
             {
                 Check(level.spawns.Length>0 && level.timeLimit>0,"LevelData has spawn bindings and timer: "+level.sceneName);
@@ -204,22 +213,42 @@ public static class Assignment11Verification
                 case 5:CheckLevel(s,3);Check(s.Save.completedLevels.Contains(2) && s.Save.unlockedLevels.Contains(3),"Original Level2 portal unlocks and opens Level3");Capture("level-3");break;
                 case 6:var boss=UnityEngine.Object.FindFirstObjectByType<BossHealth>();Check(boss!=null && boss.stats!=null,"Original boss uses its balance asset");boss.TakeDamage(boss.maxHealth);break;
                 case 7:
-                    Check(SceneManager.GetActiveScene().name=="WinScene" && s.Save.completedLevels.Count==3,"Original boss completion reaches the original WinScene and saves all levels");
+                    Check(SceneManager.GetActiveScene().name=="EnemyTrial" && s.IsCampaignTrial && s.Save.completedLevels.Count==3,"Level3 boss automatically opens EnemyTrial as the campaign finale");
+                    Check(s.Save.campaignTrialPending && !s.Save.campaignCompleted,"Winning Level3 does not finish the campaign before EnemyTrial");
                     s.Settings(0.6f,0.3f,0.4f);s.SendMessage("OnApplicationPause",true);var disk=SaveStore.Load(SaveStore.PathForSave,s.Config,out _);
-                    Check(disk.completedLevels.Count==3 && disk.bestScore>0 && disk.settings.sfx==0.4f,"Completion and pause flush progress and settings");
-                    int score=s.Save.bestScore;s.UI.ShowSettings();Button("Reset progress").onClick.Invoke();Button("Cancel").onClick.Invoke();Check(s.Save.bestScore==score,"Reset Cancel preserves progress");
-                    Button("Reset progress").onClick.Invoke();Button("Yes, reset").onClick.Invoke();break;
-                case 8:Check(s.Save.bestScore==0 && s.Save.unlockedLevels.SequenceEqual(new[]{1}) && SceneManager.GetActiveScene().name=="MainMenu","Confirmed reset restores defaults and the original menu");s.StartTrial();break;
+                    Check(disk.completedLevels.Count==3 && disk.campaignTrialPending && disk.bestScore>0 && disk.settings.sfx==0.4f,"Pending finale, progress and settings survive disk reload and pause");
+                    s.Menu();break;
+                case 8:
+                    Check(s.Save.campaignTrialPending && SceneManager.GetActiveScene().name=="MainMenu","Returning to the menu preserves the pending finale");s.StartTrial();break;
                 case 9:
-                    Check(SceneManager.GetActiveScene().name=="EnemyTrial","Assignment 10 EnemyTrial still starts");
+                    Check(SceneManager.GetActiveScene().name=="EnemyTrial" && !s.IsCampaignTrial,"Separate practice entry remains independent of campaign mode");
                     Check(UnityEngine.Object.FindObjectsByType<EnemyAgent2D>(FindObjectsSortMode.None).Length==3,"All three existing enemy types are retained");
                     Check(UnityEngine.Object.FindObjectsByType<EnemyAgent2D>(FindObjectsSortMode.None).All(e=>e.stateText!=null && e.stateText.rectTransform.anchoredPosition.y>0),"Original enemy state labels remain above the enemies");
                     Check(UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsSortMode.None).Any(t=>t.name.EndsWith("_Grass")),"Existing decorated ground retained");
-                    Check(UnityEngine.Object.FindObjectsByType<OnScreenButton>(FindObjectsSortMode.None).Length>=2,"Trial mobile controls retained");Capture("enemy-trial");break;
+                    Check(UnityEngine.Object.FindObjectsByType<OnScreenButton>(FindObjectsSortMode.None).Length>=2,"Trial mobile controls retained");Capture("enemy-trial-practice");break;
                 case 10:CombatChecks();PortalFinish(s);break;
-                case 11:Check(SceneManager.GetActiveScene().name=="WinScene" && s.Save.unlockedLevels.SequenceEqual(new[]{1}) && s.Save.completedLevels.Count==0,"Trial exit keeps its original route without altering campaign unlocks");s.StartLevel(1);break;
-                case 12:typeof(GameSession).GetProperty("Remaining").SetValue(s,0f);break;
-                case 13:Check(!s.Playing && Button("Retry this level")!=null,"Data timer shows retry without crashing");Check(errors==0,"No runtime errors during integration checks");Finish(0);return;
+                case 11:
+                    Check(SceneManager.GetActiveScene().name=="WinScene" && s.Save.campaignTrialPending && !s.Save.campaignCompleted,"Finishing practice does not consume the pending campaign finale");s.Menu();break;
+                case 12:
+                    typeof(GameSession).GetProperty("Save").SetValue(s,SaveStore.Load(SaveStore.PathForSave,s.Config,out _));
+                    s.UI.ShowLevels();Capture("level-select-sequential");Button("Continue finale / EnemyTrial").onClick.Invoke();break;
+                case 13:
+                    Check(s.IsCampaignTrial && s.Save.campaignTrialPending,"Continue finale restores campaign mode from saved progress");s.Retry();break;
+                case 14:
+                    Check(s.IsCampaignTrial && s.Save.campaignTrialPending,"Retry preserves finale mode and progress");Capture("enemy-trial");break;
+                case 15:PortalFinish(s);break;
+                case 16:
+                    Check(SceneManager.GetActiveScene().name=="WinScene" && s.Save.campaignCompleted && !s.Save.campaignTrialPending,"Victory follows the full Level1-Level2-Level3-EnemyTrial sequence");
+                    var finished=SaveStore.Load(SaveStore.PathForSave,s.Config,out _);Check(finished.campaignCompleted && !finished.campaignTrialPending,"Full campaign completion survives disk reload");
+                    int score=s.Save.bestScore;s.UI.ShowSettings();Button("Reset progress").onClick.Invoke();Button("Cancel").onClick.Invoke();Check(s.Save.bestScore==score && s.Save.campaignCompleted,"Reset Cancel preserves campaign completion");
+                    Button("Reset progress").onClick.Invoke();Button("Yes, reset").onClick.Invoke();break;
+                case 17:
+                    Check(s.Save.bestScore==0 && !s.Save.campaignCompleted && !s.Save.campaignTrialPending && s.Save.unlockedLevels.SequenceEqual(new[]{1}) && SceneManager.GetActiveScene().name=="MainMenu","Confirmed reset clears levels and finale flags");s.StartTrial();break;
+                case 18:PortalFinish(s);break;
+                case 19:
+                    Check(SceneManager.GetActiveScene().name=="WinScene" && !s.Save.campaignCompleted && !s.Save.campaignTrialPending && s.Save.unlockedLevels.SequenceEqual(new[]{1}) && s.Save.completedLevels.Count==0,"Fresh practice does not unlock or finish the campaign");s.StartLevel(1);break;
+                case 20:typeof(GameSession).GetProperty("Remaining").SetValue(s,0f);break;
+                case 21:Check(!s.Playing && Button("Retry this level")!=null,"Data timer shows retry without crashing");Check(errors==0,"No runtime errors during integration checks");Finish(0);return;
             }
             SessionState.SetInt(Prefix+"Stage",stage+1);
             SessionState.SetFloat(Prefix+"Started",(float)EditorApplication.timeSinceStartup);

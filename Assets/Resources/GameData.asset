@@ -19,6 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f94c8529cd24424bacf222a5c94498c, type: 2}
   - {fileID: 11400000, guid: bb70e74815fa4504fbcb7b1e4cda29f6, type: 2}
   enemyTrial: {fileID: 11400000, guid: c4b02560f0bc9a747871f419db84020c, type: 2}
+  trialAfterCampaign: 1
   defaultEnemy: {fileID: 11400000, guid: 41ab7508fe4e7454aab10e63ce269f67, type: 2}
   enemyProjectileRadius: 0.1
   defaultMaster: 1

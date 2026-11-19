@@ -31,7 +31,7 @@ public class AdventureUI : MonoBehaviour
         if(Session.Level!=null && screen=="game")
         {
             string goal=Session.Level.goal==LevelGoal.Boss?"DEFEAT THE BOSS":"Coins "+Session.Coins+"/"+Session.Level.requiredCoins;
-            hud.text=Session.Level.displayName+"  |  "+goal+"  |  "+Mathf.CeilToInt(Session.Remaining)+" s";
+            hud.text=(Session.IsCampaignTrial?"FINALE / ":"")+Session.Level.displayName+"  |  "+goal+"  |  "+Mathf.CeilToInt(Session.Remaining)+" s";
         }
     }
     void FitSafeArea()
@@ -51,16 +51,19 @@ public class AdventureUI : MonoBehaviour
     public void ShowLevels()
     {
         Clear("levels","MOUNTAIN ADVENTURE / LEVELS");
-        Label(content,"Best score: "+Session.Save.bestScore,new Vector2(0,222),new Vector2(620,40),22);
+        Label(content,"Best score: "+Session.Save.bestScore+(Session.Save.campaignCompleted?"  |  Campaign complete":""),new Vector2(0,222),new Vector2(650,40),22);
         for(int i=0;i<Session.Config.levels.Length;i++)
         {
             var level=Session.Config.levels[i];bool unlocked=Session.Save.unlockedLevels.Contains(level.id);
             string label=level.displayName+(unlocked?(Session.Save.completedLevels.Contains(level.id)?" - Completed":" - Play"):" - Locked");
-            var button=Button(content,label,new Vector2(0,153-i*73),new Vector2(550,58),()=>Session.StartLevel(level.id));button.GetComponent<Button>().interactable=unlocked;
+            var button=Button(content,label,new Vector2(0,153-i*68),new Vector2(550,58),()=>Session.StartLevel(level.id));button.GetComponent<Button>().interactable=unlocked;
         }
-        Button(content,"Enemy Trial / Assignment 10",new Vector2(0,-83),new Vector2(550,58),Session.StartTrial);
-        Button(content,"Settings",new Vector2(0,-156),new Vector2(550,58),ShowSettings);
-        Button(content,"Back",new Vector2(0,-229),new Vector2(250,52),ShowHome);
+        string finaleLabel=Session.Save.campaignTrialPending?"Continue finale / EnemyTrial":Session.Save.campaignCompleted?"Replay finale / EnemyTrial":"EnemyTrial / Finale";
+        var finale=Button(content,finaleLabel+(Session.CanEnterFinale?"":" - Locked"),new Vector2(0,-51),new Vector2(550,58),Session.ContinueFinalTrial);
+        finale.GetComponent<Button>().interactable=Session.CanEnterFinale;
+        Button(content,"EnemyTrial / Practice",new Vector2(0,-125),new Vector2(550,58),Session.StartTrial);
+        Button(content,"Settings",new Vector2(-145,-215),new Vector2(250,52),ShowSettings);
+        Button(content,"Back",new Vector2(145,-215),new Vector2(250,52),ShowHome);
     }
     void Back()
     {
