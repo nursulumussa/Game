@@ -6,10 +6,10 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 3;
+    public int maxHealth => GameData.Current.player.maxHealth;
     public int currentHealth;
     public TMP_Text healthText;
-    public float invincibleTime = 1f;
+    private PlayerStats Stats => GameData.Current.player;
 
     private bool invincible = false;
     private SpriteRenderer sprite;
@@ -55,14 +55,14 @@ public class PlayerHealth : MonoBehaviour
     {
         invincible = true;
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < Stats.blinkCount; i++)
         {
             if (sprite != null)
             {
                 sprite.enabled = !sprite.enabled;
             }
 
-            yield return new WaitForSeconds(invincibleTime / 6f);
+            yield return new WaitForSeconds(Stats.invincibleTime / Stats.blinkCount);
         }
 
         if (sprite != null)

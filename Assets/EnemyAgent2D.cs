@@ -4,6 +4,8 @@ using TMPro;
 // Shared senses and presentation. The three subclasses own different FSMs.
 public abstract class EnemyAgent2D : MonoBehaviour
 {
+    public EnemyStats stats;
+    protected EnemyStats Balance => stats!=null?stats:GameData.Current.defaultEnemy;
     [Header("References")]
     public PlayerHealth player;
     public Transform eyePoint;
@@ -12,17 +14,16 @@ public abstract class EnemyAgent2D : MonoBehaviour
     [Header("Sight and movement safety")]
     public LayerMask sightMask;
     public LayerMask solidMask;
-    [Min(0.1f)] public float sightDistance = 5f;
-    [Range(1f, 360f)] public float visionAngle = 150f;
-    [Range(0f, 0.45f)] public float screenMargin = 0.025f;
+    public float sightDistance => Balance.sightDistance;
+    public float visionAngle => Balance.visionAngle;
+    public float screenMargin => Balance.screenMargin;
     public int startingDirection = -1;
-    [Min(0.01f)] public float waypointTolerance = 0.06f;
-    [Min(0.01f)] public float bodySkin = 0.025f;
-    [Min(0.01f)] public float groundProbeDistance = 0.3f;
-    [Header("Fair attacks")]
-    [Range(0.3f, 0.8f)] public float windUp = 0.6f;
-    [Min(0.1f)] public float attackInterval = 1.5f;
-    [Min(1)] public int damage = 1;
+    public float waypointTolerance => Balance.waypointTolerance;
+    public float bodySkin => Balance.bodySkin;
+    public float groundProbeDistance => Balance.groundProbeDistance;
+    public float windUp => Balance.windUp;
+    public float attackInterval => Balance.attackInterval;
+    public int damage => Balance.damage;
     [Header("Warning")]
     public Color warningColor = new Color(1f, 0.25f, 0.12f);
     public Color labelColor = new Color(0.08f, 0.16f, 0.22f);

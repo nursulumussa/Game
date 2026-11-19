@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38083cdc6007dec4fb5442197293cdf7, type: 3}
+  m_Name: EnemyTrial_Data
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  id: 0
+  nextLevelId: 0
+  displayName: ENEMY TRIAL
+  sceneName: EnemyTrial
+  goal: 0
+  requiredCoins: 3
+  completionScore: 0
+  timeLimit: 180
+  scorePerSecond: 5
+  spawns:
+  - sceneObjectPath: Enemy
+    extraPrefab: {fileID: 0}
+    position: {x: -3.8, y: -2.38, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: Player
+    extraPrefab: {fileID: 0}
+    position: {x: -7, y: -2.1, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: Coin1
+    extraPrefab: {fileID: 0}
+    position: {x: -4.4, y: -1.4, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: Coin2
+    extraPrefab: {fileID: 0}
+    position: {x: 0.4, y: -1.4, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: Coin3
+    extraPrefab: {fileID: 0}
+    position: {x: 4.4, y: -1.4, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: HealthPickup
+    extraPrefab: {fileID: 0}
+    position: {x: 2.3, y: -2.2, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: ShooterEnemy
+    extraPrefab: {fileID: 0}
+    position: {x: 0.3, y: -2.38, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1
+  - sceneObjectPath: ChargerEnemy
+    extraPrefab: {fileID: 0}
+    position: {x: 4.4, y: -2.38, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    active: 1

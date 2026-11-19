@@ -389,7 +389,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.80, g: 0.21, b: 0.25, a: 1}
+  m_Color: {r: 0.8, g: 0.21, b: 0.25, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -448,7 +448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 0}
-  volume: 0.7
 --- !u!58 &451565993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -742,8 +741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c93630581f62634bab2b1b51323c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 7
-  jumpForce: 12
   audioSource: {fileID: 491300468}
   jumpSound: {fileID: 8300000, guid: ba59bd997d0a6e542a64518e32248e31, type: 3}
 --- !u!114 &491300465
@@ -789,8 +786,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
   bulletPrefab: {fileID: 3474705324319805403, guid: 43e838cdec392314cbaa30ab4bf61c23, type: 3}
-  bulletSpeed: 12
-  cooldown: 0.3
   audioSource: {fileID: 491300468}
   shootSound: {fileID: 8300000, guid: 572c2146d22ac1049bf56e73f08f04b0, type: 3}
 --- !u!114 &491300467
@@ -805,10 +800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f132bbc5694b2a4f838fba01589ff07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 3
   currentHealth: 0
   healthText: {fileID: 605731766}
-  invincibleTime: 1
 --- !u!82 &491300468
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1195,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f775171173cff4caa625c0ffdec586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 5
+  stats: {fileID: 11400000, guid: 93b079b5445eeb448b6379e18b8d14d1, type: 2}
 --- !u!61 &569117468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1988,8 +1981,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4199991d596cac9409a0f73d314e0624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
-  speed: 1
-  distance: 0.8
+  stats: {fileID: 11400000, guid: 9d56fc6d10e268748a21242395371f77, type: 2}
+  player: {fileID: 0}
+  eyePoint: {fileID: 0}
+  stateText: {fileID: 0}
+  waypoints: []
+  sightMask:
+    serializedVersion: 2
+    m_Bits: 0
+  solidMask:
+    serializedVersion: 2
+    m_Bits: 0
+  startingDirection: -1
+  warningColor: {r: 1, g: 0.25, b: 0.12, a: 1}
+  labelColor: {r: 0.08, g: 0.16, b: 0.22, a: 1}
+  warningPulseSpeed: 12
+  warningStrength: 0.9
+  currentState: 0
 --- !u!61 &863059137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2346,7 +2354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 0}
-  volume: 0.7
 --- !u!58 &911775707
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3048,7 +3055,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.20, g: 0.72, b: 0.78, a: 0.65}
+  m_Color: {r: 0.2, g: 0.72, b: 0.78, a: 0.65}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3501,7 +3508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 0}
-  volume: 0.7
 --- !u!58 &1331293478
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4318,6 +4324,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundRight_Grass
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000256
 Transform:
@@ -4406,6 +4415,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundRight_GrassHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000259
 Transform:
@@ -4472,7 +4484,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4494,6 +4506,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundRight_EarthRim
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000262
 Transform:
@@ -4582,6 +4597,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundRight_RockA
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000265
 Transform:
@@ -4670,6 +4688,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundRight_RockB
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000268
 Transform:
@@ -4758,6 +4779,9 @@ GameObject:
   m_Layer: 0
   m_Name: HealthPickup_CrossVertical
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000271
 Transform:
@@ -4846,6 +4870,9 @@ GameObject:
   m_Layer: 0
   m_Name: HealthPickup_CrossHorizontal
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000274
 Transform:
@@ -4934,6 +4961,9 @@ GameObject:
   m_Layer: 0
   m_Name: HealthPickup_KitHandle
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000277
 Transform:
@@ -5000,7 +5030,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5022,6 +5052,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_StoneFace
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000280
 Transform:
@@ -5110,6 +5143,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_MossCrown
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000283
 Transform:
@@ -5198,6 +5234,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_MossHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000286
 Transform:
@@ -5264,7 +5303,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5286,6 +5325,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_LeftEyeSocket
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000289
 Transform:
@@ -5352,7 +5394,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5374,6 +5416,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_RightEyeSocket
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000292
 Transform:
@@ -5440,7 +5485,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5462,6 +5507,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_LeftEye
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000295
 Transform:
@@ -5528,7 +5576,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5550,6 +5598,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_RightEye
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000298
 Transform:
@@ -5616,7 +5667,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5638,6 +5689,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_Mouth
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000301
 Transform:
@@ -5704,7 +5758,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5726,6 +5780,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_LeftFoot
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000304
 Transform:
@@ -5792,7 +5849,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5814,6 +5871,9 @@ GameObject:
   m_Layer: 0
   m_Name: Boss_RightFoot
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000307
 Transform:
@@ -5880,7 +5940,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5902,6 +5962,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target1_CrateTop
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000310
 Transform:
@@ -5990,6 +6053,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target1_CrateBottom
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000313
 Transform:
@@ -6078,6 +6144,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target1_CrateBand
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000316
 Transform:
@@ -6144,7 +6213,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6166,6 +6235,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform3_Grass
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000319
 Transform:
@@ -6254,6 +6326,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform3_GrassHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000322
 Transform:
@@ -6320,7 +6395,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6342,6 +6417,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform3_EarthRim
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000325
 Transform:
@@ -6430,6 +6508,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform3_RockA
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000328
 Transform:
@@ -6518,6 +6599,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform3_RockB
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000331
 Transform:
@@ -6606,6 +6690,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_StoneFace
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000334
 Transform:
@@ -6694,6 +6781,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_MossCrown
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000337
 Transform:
@@ -6782,6 +6872,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_MossHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000340
 Transform:
@@ -6848,7 +6941,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6870,6 +6963,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_LeftEyeSocket
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000343
 Transform:
@@ -6936,7 +7032,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6958,6 +7054,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_RightEyeSocket
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000346
 Transform:
@@ -7024,7 +7123,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7046,6 +7145,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_LeftEye
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000349
 Transform:
@@ -7112,7 +7214,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7134,6 +7236,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_RightEye
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000352
 Transform:
@@ -7200,7 +7305,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7222,6 +7327,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_Mouth
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000355
 Transform:
@@ -7288,7 +7396,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7310,6 +7418,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_LeftFoot
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000358
 Transform:
@@ -7376,7 +7487,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7398,6 +7509,9 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy_RightFoot
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000361
 Transform:
@@ -7464,7 +7578,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7486,6 +7600,9 @@ GameObject:
   m_Layer: 0
   m_Name: MovingPlatform_Grass
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000364
 Transform:
@@ -7574,6 +7691,9 @@ GameObject:
   m_Layer: 0
   m_Name: MovingPlatform_GrassHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000367
 Transform:
@@ -7640,7 +7760,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7662,6 +7782,9 @@ GameObject:
   m_Layer: 0
   m_Name: MovingPlatform_EarthRim
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000370
 Transform:
@@ -7750,6 +7873,9 @@ GameObject:
   m_Layer: 0
   m_Name: MovingPlatform_RockA
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000373
 Transform:
@@ -7838,6 +7964,9 @@ GameObject:
   m_Layer: 0
   m_Name: MovingPlatform_RockB
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000376
 Transform:
@@ -7926,6 +8055,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundLeft_Grass
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000379
 Transform:
@@ -8014,6 +8146,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundLeft_GrassHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000382
 Transform:
@@ -8080,7 +8215,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8102,6 +8237,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundLeft_EarthRim
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000385
 Transform:
@@ -8190,6 +8328,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundLeft_RockA
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000388
 Transform:
@@ -8278,6 +8419,9 @@ GameObject:
   m_Layer: 0
   m_Name: GroundLeft_RockB
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000391
 Transform:
@@ -8366,6 +8510,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform1_Grass
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000394
 Transform:
@@ -8454,6 +8601,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform1_GrassHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000397
 Transform:
@@ -8520,7 +8670,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8542,6 +8692,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform1_EarthRim
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000400
 Transform:
@@ -8630,6 +8783,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform1_RockA
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000403
 Transform:
@@ -8718,6 +8874,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform1_RockB
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000406
 Transform:
@@ -8806,6 +8965,9 @@ GameObject:
   m_Layer: 0
   m_Name: Portal_FrameLeft
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000409
 Transform:
@@ -8872,7 +9034,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8894,6 +9056,9 @@ GameObject:
   m_Layer: 0
   m_Name: Portal_FrameRight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000412
 Transform:
@@ -8960,7 +9125,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8982,6 +9147,9 @@ GameObject:
   m_Layer: 0
   m_Name: Portal_FrameTop
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000415
 Transform:
@@ -9070,6 +9238,9 @@ GameObject:
   m_Layer: 0
   m_Name: Portal_InnerGlow
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000418
 Transform:
@@ -9158,6 +9329,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target2_CrateTop
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000421
 Transform:
@@ -9246,6 +9420,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target2_CrateBottom
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000424
 Transform:
@@ -9334,6 +9511,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target2_CrateBand
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000427
 Transform:
@@ -9400,7 +9580,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9422,6 +9602,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform2_Grass
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000430
 Transform:
@@ -9510,6 +9693,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform2_GrassHighlight
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000433
 Transform:
@@ -9576,7 +9762,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.70, g: 0.91, b: 0.35, a: 1}
+  m_Color: {r: 0.7, g: 0.91, b: 0.35, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9598,6 +9784,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform2_EarthRim
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000436
 Transform:
@@ -9686,6 +9875,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform2_RockA
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000439
 Transform:
@@ -9774,6 +9966,9 @@ GameObject:
   m_Layer: 0
   m_Name: Platform2_RockB
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000442
 Transform:
@@ -9862,6 +10057,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target3_CrateTop
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000445
 Transform:
@@ -9950,6 +10148,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target3_CrateBottom
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000448
 Transform:
@@ -10038,6 +10239,9 @@ GameObject:
   m_Layer: 0
   m_Name: Target3_CrateBand
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8000000451
 Transform:
@@ -10104,7 +10308,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12, g: 0.20, b: 0.24, a: 1}
+  m_Color: {r: 0.12, g: 0.2, b: 0.24, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

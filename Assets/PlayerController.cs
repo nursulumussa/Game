@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 7f;
-    public float jumpForce = 12f;
+    private PlayerStats Stats => GameData.Current.player;
+
 
     public AudioSource audioSource;
     public AudioClip jumpSound;
@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump()
     {
+        if (Time.timeScale == 0) return;
         if (grounded)
         {
             rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x, jumpForce
+                rb.linearVelocity.x, Stats.jumpForce
             );
 
             grounded = false;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire()
     {
+        if (Time.timeScale == 0) return;
         GetComponent<Shooter>().Shoot();
     }
 
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<Shooter>().SetDirection(move.x);
 
         rb.linearVelocity = new Vector2(
-            move.x * speed,
+            move.x * Stats.moveSpeed,
             rb.linearVelocity.y
         );
     }

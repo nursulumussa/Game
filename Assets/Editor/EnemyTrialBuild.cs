@@ -11,6 +11,11 @@ public static class EnemyTrialBuild
     public static void BuildAndroid()
     {
         if (EditorApplication.isPlaying) throw new InvalidOperationException("Stop Play Mode before building.");
+        if (GameData.Current != null)
+        {
+            Assignment11Integration.BuildAndroid();
+            return;
+        }
         if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
         PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
         PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel26;

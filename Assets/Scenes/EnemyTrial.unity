@@ -448,7 +448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
-  volume: 0.7
 --- !u!58 &451565993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -742,8 +741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c93630581f62634bab2b1b51323c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 7
-  jumpForce: 12
   audioSource: {fileID: 491300468}
   jumpSound: {fileID: 8300000, guid: ba59bd997d0a6e542a64518e32248e31, type: 3}
 --- !u!114 &491300465
@@ -789,8 +786,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
   bulletPrefab: {fileID: 3474705324319805403, guid: 43e838cdec392314cbaa30ab4bf61c23, type: 3}
-  bulletSpeed: 12
-  cooldown: 0.3
   audioSource: {fileID: 491300468}
   shootSound: {fileID: 8300000, guid: 572c2146d22ac1049bf56e73f08f04b0, type: 3}
 --- !u!114 &491300467
@@ -805,10 +800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f132bbc5694b2a4f838fba01589ff07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 3
   currentHealth: 0
   healthText: {fileID: 605731766}
-  invincibleTime: 1
 --- !u!82 &491300468
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1827,40 +1820,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4199991d596cac9409a0f73d314e0624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
+  stats: {fileID: 11400000, guid: 408d65a9bc61cc04f951ff9f0f90cb1b, type: 2}
   player: {fileID: 491300467}
   eyePoint: {fileID: 1726885297}
   stateText: {fileID: 1760031320}
+  waypoints:
+  - {fileID: 9000000085}
+  - {fileID: 9000000088}
   sightMask:
     serializedVersion: 2
     m_Bits: 3328
   solidMask:
     serializedVersion: 2
     m_Bits: 3072
-  sightDistance: 4.5
-  visionAngle: 150
-  screenMargin: 0.025
   startingDirection: -1
-  waypointTolerance: 0.06
-  bodySkin: 0.025
-  groundProbeDistance: 0.3
-  windUp: 0.6
-  attackInterval: 1.5
-  damage: 1
   warningColor: {r: 1, g: 0.18, b: 0.05, a: 1}
   labelColor: {r: 0.05, g: 0.13, b: 0.18, a: 1}
   warningPulseSpeed: 12
   warningStrength: 0.9
-  waypoints:
-  - {fileID: 9000000085}
-  - {fileID: 9000000088}
-  speed: 0.8
-  chaseSpeed: 1.6
-  returnSpeed: 1
-  maxChaseDistance: 2.5
-  loseSightDelay: 0.6
-  attackRange: 1.15
-  attackHeight: 0.85
-
+  currentState: 0
 --- !u!61 &863059137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2219,7 +2197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
-  volume: 0.7
 --- !u!58 &911775707
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3374,7 +3351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
-  volume: 0.7
 --- !u!58 &1331293478
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3899,7 +3875,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760031319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.15, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9518,36 +9494,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5b9dee19484317a1b51d0bf8d49136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter2D
+  stats: {fileID: 11400000, guid: 3f71a19a1b8a2b346b41af5ae1f4f3f0, type: 2}
   player: {fileID: 491300467}
   eyePoint: {fileID: 9000000007}
   stateText: {fileID: 9000000009}
+  waypoints: []
   sightMask:
     serializedVersion: 2
     m_Bits: 3328
   solidMask:
     serializedVersion: 2
     m_Bits: 3072
-  sightDistance: 4.5
-  visionAngle: 150
-  screenMargin: 0.025
   startingDirection: -1
-  waypointTolerance: 0.06
-  bodySkin: 0.025
-  groundProbeDistance: 0.3
-  windUp: 0.6
-  attackInterval: 1.5
-  damage: 1
   warningColor: {r: 1, g: 0.18, b: 0.05, a: 1}
   labelColor: {r: 0.05, g: 0.13, b: 0.18, a: 1}
   warningPulseSpeed: 12
   warningStrength: 0.9
-  waypoints: []
   projectilePrefab: {fileID: -5849489167173111194, guid: dca274c645284efa982226e951c87f3c, type: 3}
   muzzle: {fileID: 9000000007}
-  scanTurnInterval: 1.8
-  projectileSpeed: 3.2
-  projectileLifetime: 4
-
+  aimLineWidth: 0.035
+  currentState: 0
 --- !u!61 &9000000003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9881,7 +9847,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9000000008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.15, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10834,39 +10800,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891d91191437414f9b1a4effae47c018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharger2D
+  stats: {fileID: 11400000, guid: eadfa321960d84a41807db7a2367efd6, type: 2}
   player: {fileID: 491300467}
   eyePoint: {fileID: 9000000048}
   stateText: {fileID: 9000000050}
+  waypoints:
+  - {fileID: 9000000091}
+  - {fileID: 9000000094}
   sightMask:
     serializedVersion: 2
     m_Bits: 3328
   solidMask:
     serializedVersion: 2
     m_Bits: 3072
-  sightDistance: 3.5
-  visionAngle: 150
-  screenMargin: 0.025
   startingDirection: -1
-  waypointTolerance: 0.06
-  bodySkin: 0.025
-  groundProbeDistance: 0.3
-  windUp: 0.7
-  attackInterval: 1.5
-  damage: 1
   warningColor: {r: 1, g: 0.18, b: 0.05, a: 1}
   labelColor: {r: 0.05, g: 0.13, b: 0.18, a: 1}
   warningPulseSpeed: 12
   warningStrength: 0.9
-  waypoints:
-  - {fileID: 9000000091}
-  - {fileID: 9000000094}
-  patrolSpeed: 0.7
-  dashSpeed: 4.2
-  dashDuration: 0.5
-  returnSpeed: 0.9
-  attackHeight: 0.85
-  hitRange: 0.85
-
+  currentState: 0
 --- !u!61 &9000000044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11200,7 +11152,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9000000049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.15, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12133,6 +12085,9 @@ GameObject:
   m_Layer: 0
   m_Name: Guard_Waypoint_A
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9000000085
 Transform:
@@ -12145,6 +12100,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.6, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12160,6 +12116,9 @@ GameObject:
   m_Layer: 0
   m_Name: Guard_Waypoint_B
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9000000088
 Transform:
@@ -12172,6 +12131,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.1, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12187,6 +12147,9 @@ GameObject:
   m_Layer: 0
   m_Name: Charger_Waypoint_A
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9000000091
 Transform:
@@ -12199,6 +12162,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.6, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12214,6 +12178,9 @@ GameObject:
   m_Layer: 0
   m_Name: Charger_Waypoint_B
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9000000094
 Transform:
@@ -12226,6 +12193,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.3, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12239,10 +12207,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e577ce1d9474516846b52d7c4ecb375, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth2D
-  maxHealth: 3
-
+  stats: {fileID: 11400000, guid: 408d65a9bc61cc04f951ff9f0f90cb1b, type: 2}
+  currentHealth: 0
 --- !u!114 &9000000096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12253,10 +12221,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e577ce1d9474516846b52d7c4ecb375, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth2D
-  maxHealth: 3
-
+  stats: {fileID: 11400000, guid: 3f71a19a1b8a2b346b41af5ae1f4f3f0, type: 2}
+  currentHealth: 0
 --- !u!114 &9000000097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12267,10 +12235,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e577ce1d9474516846b52d7c4ecb375, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth2D
-  maxHealth: 3
-
+  stats: {fileID: 11400000, guid: eadfa321960d84a41807db7a2367efd6, type: 2}
+  currentHealth: 0
 --- !u!1 &9000000099
 GameObject:
   m_ObjectHideFlags: 0
@@ -12284,6 +12252,9 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyTrialSession
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9000000100
 Transform:
@@ -12296,6 +12267,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12309,12 +12281,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f35d204c0d4fbb9b13ad9746a0d6eb, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTrialSession
   template: {fileID: 605731766}
-  objective: '3 COINS + EXIT | FIRE defeats enemies | JUMP dodges attacks'
+  objective: 3 COINS + EXIT | FIRE defeats enemies | JUMP dodges attacks
   hudFontSize: 24
-
+  counterFontSize: 32
+  hudInset: 24
+  minimumCameraHalfWidth: 8.4
+  minimumCameraHalfHeight: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

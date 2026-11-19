@@ -1,0 +1,1893 @@
+{
+  "entries": [
+    {
+      "scene": "EnemyTrial",
+      "id": "148958664",
+      "typeName": "HealthPickup",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "451565992",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "491300464",
+      "typeName": "PlayerController",
+      "values": [
+        {
+          "name": "speed",
+          "value": 7.0
+        },
+        {
+          "name": "jumpForce",
+          "value": 12.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "491300466",
+      "typeName": "Shooter",
+      "values": [
+        {
+          "name": "bulletSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "cooldown",
+          "value": 0.3
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "491300467",
+      "typeName": "PlayerHealth",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 3.0
+        },
+        {
+          "name": "invincibleTime",
+          "value": 1.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "currentHealth",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "541033772",
+      "typeName": "CoinCounter",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "575975193",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "863059136",
+      "typeName": "EnemyPatrol",
+      "values": [
+        {
+          "name": "sightDistance",
+          "value": 4.5
+        },
+        {
+          "name": "visionAngle",
+          "value": 150.0
+        },
+        {
+          "name": "screenMargin",
+          "value": 0.025
+        },
+        {
+          "name": "startingDirection",
+          "value": -1.0
+        },
+        {
+          "name": "waypointTolerance",
+          "value": 0.06
+        },
+        {
+          "name": "bodySkin",
+          "value": 0.025
+        },
+        {
+          "name": "groundProbeDistance",
+          "value": 0.3
+        },
+        {
+          "name": "windUp",
+          "value": 0.6
+        },
+        {
+          "name": "attackInterval",
+          "value": 1.5
+        },
+        {
+          "name": "damage",
+          "value": 1.0
+        },
+        {
+          "name": "warningPulseSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "warningStrength",
+          "value": 0.9
+        },
+        {
+          "name": "speed",
+          "value": 0.8
+        },
+        {
+          "name": "distance",
+          "value": 0.8
+        },
+        {
+          "name": "chaseSpeed",
+          "value": 1.6
+        },
+        {
+          "name": "returnSpeed",
+          "value": 1.0
+        },
+        {
+          "name": "maxChaseDistance",
+          "value": 2.5
+        },
+        {
+          "name": "loseSightDelay",
+          "value": 0.6
+        },
+        {
+          "name": "attackRange",
+          "value": 1.15
+        },
+        {
+          "name": "attackHeight",
+          "value": 0.85
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "stateLabelX",
+          "value": 0.0
+        },
+        {
+          "name": "stateLabelY",
+          "value": 1.15
+        },
+        {
+          "name": "stateLabelZ",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "911775706",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "1154983081",
+      "typeName": "Portal",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "1189016029",
+      "typeName": "FallZone",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "1240205990",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "1331293477",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "2001980497",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "9000000002",
+      "typeName": "EnemyShooter2D",
+      "values": [
+        {
+          "name": "sightDistance",
+          "value": 4.5
+        },
+        {
+          "name": "visionAngle",
+          "value": 150.0
+        },
+        {
+          "name": "screenMargin",
+          "value": 0.025
+        },
+        {
+          "name": "startingDirection",
+          "value": -1.0
+        },
+        {
+          "name": "waypointTolerance",
+          "value": 0.06
+        },
+        {
+          "name": "bodySkin",
+          "value": 0.025
+        },
+        {
+          "name": "groundProbeDistance",
+          "value": 0.3
+        },
+        {
+          "name": "windUp",
+          "value": 0.6
+        },
+        {
+          "name": "attackInterval",
+          "value": 1.5
+        },
+        {
+          "name": "damage",
+          "value": 1.0
+        },
+        {
+          "name": "warningPulseSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "warningStrength",
+          "value": 0.9
+        },
+        {
+          "name": "scanTurnInterval",
+          "value": 1.8
+        },
+        {
+          "name": "projectileSpeed",
+          "value": 3.2
+        },
+        {
+          "name": "projectileLifetime",
+          "value": 4.0
+        },
+        {
+          "name": "aimLineWidth",
+          "value": 0.035
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "stateLabelX",
+          "value": 0.0
+        },
+        {
+          "name": "stateLabelY",
+          "value": 1.15
+        },
+        {
+          "name": "stateLabelZ",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "9000000043",
+      "typeName": "EnemyCharger2D",
+      "values": [
+        {
+          "name": "sightDistance",
+          "value": 3.5
+        },
+        {
+          "name": "visionAngle",
+          "value": 150.0
+        },
+        {
+          "name": "screenMargin",
+          "value": 0.025
+        },
+        {
+          "name": "startingDirection",
+          "value": -1.0
+        },
+        {
+          "name": "waypointTolerance",
+          "value": 0.06
+        },
+        {
+          "name": "bodySkin",
+          "value": 0.025
+        },
+        {
+          "name": "groundProbeDistance",
+          "value": 0.3
+        },
+        {
+          "name": "windUp",
+          "value": 0.7
+        },
+        {
+          "name": "attackInterval",
+          "value": 1.5
+        },
+        {
+          "name": "damage",
+          "value": 1.0
+        },
+        {
+          "name": "warningPulseSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "warningStrength",
+          "value": 0.9
+        },
+        {
+          "name": "patrolSpeed",
+          "value": 0.7
+        },
+        {
+          "name": "dashSpeed",
+          "value": 4.2
+        },
+        {
+          "name": "dashDuration",
+          "value": 0.5
+        },
+        {
+          "name": "returnSpeed",
+          "value": 0.9
+        },
+        {
+          "name": "attackHeight",
+          "value": 0.85
+        },
+        {
+          "name": "hitRange",
+          "value": 0.85
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "stateLabelX",
+          "value": 0.0
+        },
+        {
+          "name": "stateLabelY",
+          "value": 1.15
+        },
+        {
+          "name": "stateLabelZ",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "9000000095",
+      "typeName": "EnemyHealth2D",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 3.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "9000000096",
+      "typeName": "EnemyHealth2D",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 3.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "9000000097",
+      "typeName": "EnemyHealth2D",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 3.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "EnemyTrial",
+      "id": "9000000101",
+      "typeName": "EnemyTrialSession",
+      "values": [
+        {
+          "name": "hudFontSize",
+          "value": 24.0
+        },
+        {
+          "name": "counterFontSize",
+          "value": 32.0
+        },
+        {
+          "name": "hudInset",
+          "value": 24.0
+        },
+        {
+          "name": "minimumCameraHalfWidth",
+          "value": 8.4
+        },
+        {
+          "name": "minimumCameraHalfHeight",
+          "value": 5.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "451565992",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "491300464",
+      "typeName": "PlayerController",
+      "values": [
+        {
+          "name": "speed",
+          "value": 7.0
+        },
+        {
+          "name": "jumpForce",
+          "value": 12.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "491300466",
+      "typeName": "Shooter",
+      "values": [
+        {
+          "name": "bulletSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "cooldown",
+          "value": 0.3
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "541033772",
+      "typeName": "CoinCounter",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "575975193",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "911775706",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "1154983081",
+      "typeName": "Portal",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "1240205990",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "1331293477",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level1",
+      "id": "2001980497",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "148958664",
+      "typeName": "HealthPickup",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "451565992",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "491300464",
+      "typeName": "PlayerController",
+      "values": [
+        {
+          "name": "speed",
+          "value": 7.0
+        },
+        {
+          "name": "jumpForce",
+          "value": 12.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "491300466",
+      "typeName": "Shooter",
+      "values": [
+        {
+          "name": "bulletSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "cooldown",
+          "value": 0.3
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "491300467",
+      "typeName": "PlayerHealth",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 3.0
+        },
+        {
+          "name": "invincibleTime",
+          "value": 1.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "currentHealth",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "541033772",
+      "typeName": "CoinCounter",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "575975193",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "863059136",
+      "typeName": "EnemyPatrol",
+      "values": [
+        {
+          "name": "sightDistance",
+          "value": 4.0
+        },
+        {
+          "name": "visionAngle",
+          "value": 150.0
+        },
+        {
+          "name": "screenMargin",
+          "value": 0.025
+        },
+        {
+          "name": "startingDirection",
+          "value": -1.0
+        },
+        {
+          "name": "waypointTolerance",
+          "value": 0.06
+        },
+        {
+          "name": "bodySkin",
+          "value": 0.025
+        },
+        {
+          "name": "groundProbeDistance",
+          "value": 0.3
+        },
+        {
+          "name": "windUp",
+          "value": 0.6
+        },
+        {
+          "name": "attackInterval",
+          "value": 1.2
+        },
+        {
+          "name": "damage",
+          "value": 1.0
+        },
+        {
+          "name": "warningPulseSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "warningStrength",
+          "value": 0.9
+        },
+        {
+          "name": "speed",
+          "value": 1.0
+        },
+        {
+          "name": "distance",
+          "value": 0.8
+        },
+        {
+          "name": "chaseSpeed",
+          "value": 1.8
+        },
+        {
+          "name": "returnSpeed",
+          "value": 1.0
+        },
+        {
+          "name": "maxChaseDistance",
+          "value": 4.0
+        },
+        {
+          "name": "loseSightDelay",
+          "value": 0.5
+        },
+        {
+          "name": "attackRange",
+          "value": 1.0
+        },
+        {
+          "name": "attackHeight",
+          "value": 0.8
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "currentState",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "911775706",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "1154983081",
+      "typeName": "Portal",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "1189016029",
+      "typeName": "FallZone",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "1240205990",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "1331293477",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level2",
+      "id": "2001980497",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "148958664",
+      "typeName": "HealthPickup",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "451565992",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "491300464",
+      "typeName": "PlayerController",
+      "values": [
+        {
+          "name": "speed",
+          "value": 7.0
+        },
+        {
+          "name": "jumpForce",
+          "value": 12.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "491300466",
+      "typeName": "Shooter",
+      "values": [
+        {
+          "name": "bulletSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "cooldown",
+          "value": 0.3
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "491300467",
+      "typeName": "PlayerHealth",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 3.0
+        },
+        {
+          "name": "invincibleTime",
+          "value": 1.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "currentHealth",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "541033772",
+      "typeName": "CoinCounter",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "569117467",
+      "typeName": "BossHealth",
+      "values": [
+        {
+          "name": "maxHealth",
+          "value": 5.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "575975193",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "863059136",
+      "typeName": "EnemyPatrol",
+      "values": [
+        {
+          "name": "sightDistance",
+          "value": 5.0
+        },
+        {
+          "name": "visionAngle",
+          "value": 150.0
+        },
+        {
+          "name": "screenMargin",
+          "value": 0.025
+        },
+        {
+          "name": "startingDirection",
+          "value": -1.0
+        },
+        {
+          "name": "waypointTolerance",
+          "value": 0.06
+        },
+        {
+          "name": "bodySkin",
+          "value": 0.025
+        },
+        {
+          "name": "groundProbeDistance",
+          "value": 0.3
+        },
+        {
+          "name": "windUp",
+          "value": 0.6
+        },
+        {
+          "name": "attackInterval",
+          "value": 1.5
+        },
+        {
+          "name": "damage",
+          "value": 1.0
+        },
+        {
+          "name": "warningPulseSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "warningStrength",
+          "value": 0.9
+        },
+        {
+          "name": "speed",
+          "value": 1.0
+        },
+        {
+          "name": "distance",
+          "value": 0.8
+        },
+        {
+          "name": "chaseSpeed",
+          "value": 1.8
+        },
+        {
+          "name": "returnSpeed",
+          "value": 1.0
+        },
+        {
+          "name": "maxChaseDistance",
+          "value": 3.0
+        },
+        {
+          "name": "loseSightDelay",
+          "value": 0.6
+        },
+        {
+          "name": "attackRange",
+          "value": 1.15
+        },
+        {
+          "name": "attackHeight",
+          "value": 0.85
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "911775706",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "1154983081",
+      "typeName": "Portal",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "1189016029",
+      "typeName": "FallZone",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "1240205990",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "1331293477",
+      "typeName": "Coin",
+      "values": [
+        {
+          "name": "volume",
+          "value": 0.7
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "Level3",
+      "id": "2001980497",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "MainMenu",
+      "id": "412293419",
+      "typeName": "MainMenuController",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "MainMenu",
+      "id": "1534648501",
+      "typeName": "ButtonSound",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "SampleScene",
+      "id": "491300464",
+      "typeName": "PlayerController",
+      "values": [
+        {
+          "name": "speed",
+          "value": 7.0
+        },
+        {
+          "name": "jumpForce",
+          "value": 12.0
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "SampleScene",
+      "id": "491300466",
+      "typeName": "Shooter",
+      "values": [
+        {
+          "name": "bulletSpeed",
+          "value": 12.0
+        },
+        {
+          "name": "cooldown",
+          "value": 0.3
+        },
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "SampleScene",
+      "id": "575975193",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "SampleScene",
+      "id": "1240205990",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "SampleScene",
+      "id": "2001980497",
+      "typeName": "Target",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "scene": "WinScene",
+      "id": "203137409",
+      "typeName": "WinMenu",
+      "values": [
+        {
+          "name": "m_ObjectHideFlags",
+          "value": 0.0
+        },
+        {
+          "name": "m_Enabled",
+          "value": 1.0
+        },
+        {
+          "name": "m_EditorHideFlags",
+          "value": 0.0
+        }
+      ]
+    }
+  ]
+}

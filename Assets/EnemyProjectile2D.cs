@@ -3,7 +3,7 @@ using UnityEngine;
 // CircleCast sweeps the entire step, avoiding tunnelling at low phone frame rates.
 public class EnemyProjectile2D : MonoBehaviour
 {
-    public float radius = 0.10f;
+    public float radius => GameData.Current.enemyProjectileRadius;
     Vector2 direction;
     float speed, expires, screenMargin;
     int damage;
@@ -19,7 +19,7 @@ public class EnemyProjectile2D : MonoBehaviour
     }
     void Update()
     {
-        if (!launched) return;
+        if (!launched || Time.timeScale == 0) return;
         if (Time.time >= expires || gameCamera == null) { Destroy(gameObject); return; }
         Vector3 v = gameCamera.WorldToViewportPoint(transform.position);
         if (v.z <= 0f || v.x <= screenMargin || v.x >= 1f - screenMargin || v.y <= screenMargin || v.y >= 1f - screenMargin)

@@ -13,7 +13,7 @@ public class Portal : MonoBehaviour
         {
             if (coinCounter != null && coinCounter.HasAllCoins())
             {
-                SceneManager.LoadScene(nextScene);
+                GameSession.Instance.Complete(nextScene);
             }
         }
     }

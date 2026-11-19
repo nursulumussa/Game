@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
-    public int maxHealth = 5;
+    public EnemyStats stats;
+    public int maxHealth => stats.maxHealth;
     private int currentHealth;
 
     void Start()
@@ -22,7 +23,7 @@ public class BossHealth : MonoBehaviour
         {
             Debug.Log("Boss defeated!");
 
-            SceneManager.LoadScene("WinScene");
+            GameSession.Instance.BossDefeated();
         }
     }
 }

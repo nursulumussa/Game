@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
-    public int damage = 1;
+    public int damage => GameData.Current.player.bulletDamage;
     public LayerMask blockingLayers;
 
     void Awake()

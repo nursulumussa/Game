@@ -448,7 +448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
-  volume: 0.7
 --- !u!58 &451565993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -742,8 +741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c93630581f62634bab2b1b51323c474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 7
-  jumpForce: 12
   audioSource: {fileID: 491300468}
   jumpSound: {fileID: 8300000, guid: ba59bd997d0a6e542a64518e32248e31, type: 3}
 --- !u!114 &491300465
@@ -789,8 +786,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
   bulletPrefab: {fileID: 3474705324319805403, guid: 43e838cdec392314cbaa30ab4bf61c23, type: 3}
-  bulletSpeed: 12
-  cooldown: 0.3
   audioSource: {fileID: 491300468}
   shootSound: {fileID: 8300000, guid: 572c2146d22ac1049bf56e73f08f04b0, type: 3}
 --- !u!114 &491300467
@@ -805,10 +800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f132bbc5694b2a4f838fba01589ff07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 3
   currentHealth: 0
   healthText: {fileID: 605731766}
-  invincibleTime: 1
 --- !u!82 &491300468
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1826,23 +1819,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4199991d596cac9409a0f73d314e0624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
+  stats: {fileID: 11400000, guid: d33fcf39a2218864daa74c8b513ea145, type: 2}
   player: {fileID: 491300467}
   eyePoint: {fileID: 1726885297}
   stateText: {fileID: 1760031320}
-  speed: 1
-  distance: 0.8
-  chaseSpeed: 1.8
-  returnSpeed: 1
-  maxChaseDistance: 4
-  sightDistance: 4
-  loseSightDelay: 0.5
+  waypoints: []
   sightMask:
     serializedVersion: 2
     m_Bits: 3328
-  attackRange: 1
-  attackHeight: 0.8
-  attackInterval: 1.2
-  damage: 1
+  solidMask:
+    serializedVersion: 2
+    m_Bits: 0
+  startingDirection: -1
+  warningColor: {r: 1, g: 0.25, b: 0.12, a: 1}
+  labelColor: {r: 0.08, g: 0.16, b: 0.22, a: 1}
+  warningPulseSpeed: 12
+  warningStrength: 0.9
   currentState: 0
 --- !u!61 &863059137
 BoxCollider2D:
@@ -2202,7 +2194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
-  volume: 0.7
 --- !u!58 &911775707
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3357,7 +3348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
-  volume: 0.7
 --- !u!58 &1331293478
 CircleCollider2D:
   m_ObjectHideFlags: 0

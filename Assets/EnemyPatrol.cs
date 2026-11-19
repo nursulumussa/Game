@@ -3,15 +3,14 @@ using UnityEngine;
 public class EnemyPatrol : EnemyAgent2D
 {
     public enum State { Patrol, Chase, WindUp, Attack, Recover, Return }
-    [Header("Guard tuning")]
-    public float speed = 1f;
-    public float distance = 0.8f; // Compatibility with previous scenes.
-    public float chaseSpeed = 1.8f;
-    public float returnSpeed = 1f;
-    public float maxChaseDistance = 3f;
-    public float loseSightDelay = 0.6f;
-    public float attackRange = 1.15f;
-    public float attackHeight = 0.85f;
+    public float speed => Balance.speed;
+    public float distance => Balance.distance; // Compatibility with previous scenes.
+    public float chaseSpeed => Balance.chaseSpeed;
+    public float returnSpeed => Balance.returnSpeed;
+    public float maxChaseDistance => Balance.maxChaseDistance;
+    public float loseSightDelay => Balance.loseSightDelay;
+    public float attackRange => Balance.attackRange;
+    public float attackHeight => Balance.attackHeight;
     [SerializeField] private State currentState;
     float lostTime, recoveryUntil;
     GameObject fallbackRoute;
@@ -38,6 +37,7 @@ public class EnemyPatrol : EnemyAgent2D
         && Mathf.Abs(PlayerCenter.y - Center.y) <= attackHeight;
     void Update()
     {
+        if (Time.timeScale == 0) return;
         if (!Ready) return;
         Tick(currentState == State.WindUp);
         bool seen = HasLineOfSight();

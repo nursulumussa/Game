@@ -4,12 +4,14 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public AudioClip coinSound;
-    public float volume = 0.7f;
+    private bool collected;
+    private float Volume => GameData.Current.items.coinSoundVolume * GameSession.Instance.Save.settings.sfx;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerController>() != null)
+        if (!collected && other.GetComponent<PlayerController>() != null)
         {
+            collected = true;
             CoinCounter counter =
                 FindFirstObjectByType<CoinCounter>();
 
@@ -22,7 +24,7 @@ public class Coin : MonoBehaviour
                     AudioSource.PlayClipAtPoint(
                         coinSound,
                         Camera.main.transform.position,
-                        volume
+                        Volume
                     );
                 }
 

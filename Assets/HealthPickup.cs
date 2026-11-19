@@ -9,7 +9,7 @@ public class HealthPickup : MonoBehaviour
 
         if (player != null && player.currentHealth < player.maxHealth)
         {
-            player.Heal(1);
+            player.Heal(GameData.Current.items.healAmount);
             Destroy(gameObject);
         }
     }

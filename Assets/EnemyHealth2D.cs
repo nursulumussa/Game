@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth2D : MonoBehaviour
 {
-    [Min(1)] public int maxHealth = 2;
+    public EnemyStats stats;
+    public int maxHealth => stats.maxHealth;
     [SerializeField] private int currentHealth;
     void Awake() { currentHealth = maxHealth; }
     void OnTriggerEnter2D(Collider2D other)

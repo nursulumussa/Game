@@ -4,8 +4,8 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 12f;
-    public float cooldown = 0.3f;
+    private PlayerStats Stats => GameData.Current.player;
+
 
     public AudioSource audioSource;
     public AudioClip shootSound;
@@ -24,7 +24,7 @@ public class Shooter : MonoBehaviour
         if (Time.time < nextShot || bulletPrefab == null)
             return;
 
-        nextShot = Time.time + cooldown;
+        nextShot = Time.time + Stats.shotCooldown;
 
         if (audioSource != null && shootSound != null)
         {
@@ -32,7 +32,7 @@ public class Shooter : MonoBehaviour
         }
 
         Vector3 spawnPosition = transform.position
-            + new Vector3(direction * 0.7f, 0f, 0f);
+            + new Vector3(direction * Stats.muzzleOffset, 0f, 0f);
 
         GameObject bullet = Instantiate(
             bulletPrefab,
@@ -40,13 +40,13 @@ public class Shooter : MonoBehaviour
             Quaternion.identity
         );
 
-        Rigidbody2D bulletRb =
-            bullet.AddComponent<Rigidbody2D>();
+        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        if (bulletRb == null) bulletRb = bullet.AddComponent<Rigidbody2D>();
 
         bulletRb.gravityScale = 0f;
         bulletRb.linearVelocity =
-            Vector2.right * direction * bulletSpeed;
+            Vector2.right * direction * Stats.bulletSpeed;
 
-        Destroy(bullet, 3f);
+        Destroy(bullet, Stats.bulletLifetime);
     }
 }

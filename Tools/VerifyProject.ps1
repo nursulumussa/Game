@@ -2,6 +2,22 @@ $ErrorActionPreference='Stop'
 $project=Split-Path $PSScriptRoot -Parent
 $version=[regex]::Match((Get-Content "$project\ProjectSettings\ProjectVersion.txt" -Raw),'m_EditorVersion: (\S+)').Groups[1].Value
 $engine=Join-Path $env:ProgramFiles "Unity\Hub\Editor\$version\Editor\Data"
+$catalog=Join-Path $project 'Assets\Resources\GameData.asset'
+if(Test-Path -LiteralPath $catalog){
+ $engineExe=Join-Path (Split-Path $engine -Parent) 'Unity.exe'
+ $logPath=Join-Path $project 'Tools\Assignment11.verify.log'
+ $running=Get-CimInstance Win32_Process -Filter "Name = 'Unity.exe'" | Where-Object {
+  $argument=[regex]::Match($_.CommandLine,'(?i)-projectPath\s+(?:"([^"]+)"|(\S+))')
+  $argument.Success -and (($argument.Groups[1].Value+$argument.Groups[2].Value).Replace('/','\').TrimEnd('\') -eq $project.TrimEnd('\'))
+ }
+ if($running){throw 'Save scenes and close this Unity project before batch verification. The integration check restores the existing save and closes Unity on completion.'}
+ $arguments=@('-batchmode','-nographics','-projectPath',('"'+$project+'"'),'-executeMethod','Assignment11Integration.Verify','-logFile',('"'+$logPath+'"'))
+ $verificationProcess=Start-Process -FilePath $engineExe -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
+ if($verificationProcess.ExitCode -ne 0){throw ('Unity verification failed. Read '+$logPath)}
+ if(-not (Select-String -LiteralPath $logPath -Pattern 'A11_EXISTING_PROJECT_ALL_TESTS_PASSED' -Quiet)){throw 'Unity exited without a successful verification marker.'}
+ Select-String -LiteralPath $logPath -Pattern 'A11_PASS ' | ForEach-Object {$_.Line}
+ return
+}
 $scratch=Join-Path ([IO.Path]::GetTempPath()) 'MountainAdventureVerification'
 New-Item -ItemType Directory -Path $scratch -Force | Out-Null
 $checks=[Collections.Generic.List[string]]::new()
@@ -57,3 +73,5 @@ $checks.Add('NOT RUN: Unity scene import, Play Mode, Android build, phone playte
 $checks.Add('Background Unity launch failed connecting to its license client; no APK is claimed.')
 $report="Verification: $(Get-Date -Format o)`n"+($checks -join "`n")+"`n"
 [IO.File]::WriteAllText((Join-Path $scratch 'VERIFICATION.txt'),$report,[Text.UTF8Encoding]::new($false))
+
+

@@ -7,9 +7,9 @@ public class EnemyShooter2D : EnemyAgent2D
     [Header("Shooter tuning")]
     public EnemyProjectile2D projectilePrefab;
     public Transform muzzle;
-    public float scanTurnInterval = 1.8f;
-    public float projectileSpeed = 3.2f;
-    public float projectileLifetime = 4f;
+    public float scanTurnInterval => Balance.scanTurnInterval;
+    public float projectileSpeed => Balance.projectileSpeed;
+    public float projectileLifetime => Balance.projectileLifetime;
     public float aimLineWidth = 0.035f;
     [SerializeField] private State currentState;
     Vector2 lockedDirection;
@@ -32,6 +32,7 @@ public class EnemyShooter2D : EnemyAgent2D
     void Set(State s) { currentState = s; Enter("SHOOTER / " + s); }
     void Update()
     {
+        if (Time.timeScale == 0) return;
         if (!Ready) return;
         Tick(currentState == State.Aim);
         if (aimLine != null)

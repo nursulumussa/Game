@@ -4,13 +4,12 @@ using UnityEngine;
 public class EnemyCharger2D : EnemyAgent2D
 {
     public enum State { Patrol, WindUp, Dash, Recover, Return }
-    [Header("Charger tuning")]
-    public float patrolSpeed = 0.7f;
-    public float dashSpeed = 4.2f;
-    public float dashDuration = 0.5f;
-    public float returnSpeed = 0.9f;
-    public float attackHeight = 0.85f;
-    public float hitRange = 0.85f;
+    public float patrolSpeed => Balance.patrolSpeed;
+    public float dashSpeed => Balance.dashSpeed;
+    public float dashDuration => Balance.dashDuration;
+    public float returnSpeed => Balance.returnSpeed;
+    public float attackHeight => Balance.attackHeight;
+    public float hitRange => Balance.hitRange;
     [SerializeField] private State currentState;
     int dashDirection;
     bool hitThisDash;
@@ -18,6 +17,7 @@ public class EnemyCharger2D : EnemyAgent2D
     void Set(State s) { currentState = s; Enter("CHARGER / " + s); }
     void Update()
     {
+        if (Time.timeScale == 0) return;
         if (!Ready) return;
         Tick(currentState == State.WindUp);
         switch (currentState)
