@@ -220,3 +220,4 @@ Architectures: arm64-v8a, armeabi-v7a
 APK bytes: 73732089
 APK SHA-256: f0ea712c2891204afd22690b4dfe0fd7ecfb73c896309af13704b585ca473329
 Existing APK signing certificate matches the Assignment 11 APK: PASS
+Actual Unity AudioMixer screenshot: AudioMixer.png, Paused selected, Master/Music/SFX groups visible, Music Tone -12 dB. Normal restored after capture.
