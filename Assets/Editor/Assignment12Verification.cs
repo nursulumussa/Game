@@ -119,6 +119,21 @@ public static class Assignment12Verification
                     session.Menu();break;
                 case 6:
                     Check(audio==original && audio.GetComponentsInChildren<AudioSource>().Single(a=>a.clip==audio.Bank.menuMusic).isPlaying,"Return to menu crossfades to persistent menu deck");
+                    session.StartTrial();break;
+                case 7:
+                    var zone=UnityEngine.Object.FindFirstObjectByType<FallZone>();
+                    Check(zone!=null,"Original fall zone remains present");
+                    int beforeFall=audio.EventCount;
+                    typeof(FallZone).GetMethod("OnTriggerEnter2D",flags).Invoke(zone,new object[]{UnityEngine.Object.FindFirstObjectByType<PlayerController>().GetComponent<Collider2D>()});
+                    Check(audio.EventCount==beforeFall+2 && audio.LastEvent==SoundEvent.Lose,"Actual fall trigger emits death and defeat before restart");break;
+                case 8:
+                    Check(audio==original && SceneManager.GetActiveScene().name=="EnemyTrial","Fall restart preserves the persistent sound manager");
+                    var health=UnityEngine.Object.FindFirstObjectByType<PlayerHealth>();int beforeDeath=audio.EventCount;
+                    typeof(PlayerHealth).GetField("invincible",flags).SetValue(health,false);
+                    health.TakeDamage(health.currentHealth);
+                    Check(audio.EventCount==beforeDeath+3 && audio.LastEvent==SoundEvent.Lose,"Lethal damage emits hit death and defeat before restart");break;
+                case 9:
+                    Check(audio==original && SceneManager.GetActiveScene().name=="EnemyTrial","Damage restart preserves the persistent sound manager");
                     Check(errors==0,"No runtime audio errors");Finish(true);return;
             }
             SessionState.SetInt(Key+"Stage",stage+1);SessionState.SetFloat(Key+"Started",(float)EditorApplication.timeSinceStartup);

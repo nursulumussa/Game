@@ -8,6 +8,8 @@ public class FallZone : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>() != null)
         {
+            AdventureAudio.Play(SoundEvent.Death);
+            AdventureAudio.Play(SoundEvent.Lose);
             string sceneName =
                 SceneManager.GetActiveScene().name;
 

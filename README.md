@@ -34,7 +34,8 @@ effects. Win/lose cues retain their composed pitch.
 ### Script map
 
 - PlayerController → AdventureAudio: jump; Shooter → AdventureAudio: player shot.
-- PlayerHealth / EnemyHealth2D / BossHealth → AdventureAudio: hit and death.
+- PlayerHealth / EnemyHealth2D / BossHealth → AdventureAudio: hit and death;
+  FallZone → AdventureAudio: death and defeat before the existing fall restart.
 - Coin / HealthPickup → AdventureAudio: pickup.
 - EnemyAgent2D.Enter → AdventureAudio: different Guard WindUp, Shooter Aim and
   Charger WindUp warnings immediately on state entry, before their attack states;

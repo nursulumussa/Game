@@ -1,0 +1,222 @@
+Mountain Adventure — Assignment 12 Sound Pass
+Date: 2026-11-25
+Project: C:/workspace/MountainAdventure
+Automated audio assertions: 76
+Campaign/save/FSM assertions: 118
+Both suites: PASS
+Scene preservation: 1143 existing object, geometry, visual, collision, camera and canvas blocks unchanged against A11.
+Audio waveform audit: 14 generated WAV files; non-silent, unclipped, edge fades verified.
+Sources/licenses: 12 original SFX and two original music compositions, generator in Tools/GenerateSoundPass.py, CC0 entries in README.md.
+Existing local player speed 8 retained.
+Pre-test Editor save restored; tests use synthetic inputs and FSM state entry, not a human phone playtest.
+Not performed: physical phone listening/restart test, student English voice recording, Canvas submission.
+
+Audio checks:
+12 original sound events and valid bank
+Two different original music tracks
+Mixer has Master Music and SFX groups
+Normal and Paused snapshots exist
+Logarithmic volume and safe zero handling
+Persistent audio and game session available
+Persistent audio and game session available
+Two music decks and bounded pool of 16 SFX voices
+Every loaded AudioSource routed to the mixer
+Menu track plays
+Persistent audio and game session available
+Audio manager persists into Level1
+Level music fades in (playing=True, gain=0,55, fade=1)
+Menu and level music overlap during the crossfade
+Saved Music slider reaches exposed mixer dB parameter
+Music and SFX settings survive disk reload
+Actual player jump emits its sound once
+Actual player shooting emits its sound once
+Persistent audio and game session available
+Level1 to Level2 retains the playing track position
+Persistent audio and game session available
+Settings pause activates the Paused snapshot using unscaled time
+Music keeps playing softly on pause
+UI click is audible while gameplay is paused
+Persistent audio and game session available
+Resume restores the Normal snapshot
+Persistent audio and game session available
+Distinct warning starts at FSM wind-up entry: EnemyCharger2D
+Distinct warning starts at FSM wind-up entry: EnemyPatrol
+Distinct warning starts at FSM wind-up entry: EnemyShooter2D
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Pitch within 0.92 to 1.08
+Repeated pickups vary their pitch
+Playable event: Jump
+Playable event: Shot
+Playable event: Hit
+Playable event: Pickup
+Playable event: GuardWindup
+Playable event: ShooterWindup
+Playable event: ChargerWindup
+Playable event: EnemyAttack
+Playable event: Death
+Playable event: Click
+Playable event: Win
+Playable event: Lose
+All trial and persistent sources routed
+Persistent audio and game session available
+Persistent audio and game session available
+Return to menu crossfades to persistent menu deck
+Persistent audio and game session available
+Original fall zone remains present
+Actual fall trigger emits death and defeat before restart
+Persistent audio and game session available
+Fall restart preserves the persistent sound manager
+Lethal damage emits hit death and defeat before restart
+Persistent audio and game session available
+Damage restart preserves the persistent sound manager
+No runtime audio errors
+
+Campaign/save/FSM checks:
+Three LevelData assets reference the existing campaign scenes
+Original Level1/2/3 names and scene routes retained
+Assignment 10 EnemyTrial remains accessible
+No replacement Gameplay scene created
+Missing save restores defaults
+Invalid save restores defaults: {broken
+Invalid save restores defaults: {}
+Invalid save restores defaults: null
+Invalid save restores defaults: []
+Invalid save restores defaults: {"version":99}
+Invalid save restores defaults: 
+JSON writes successfully
+Progress, score and settings survive a disk round trip
+Unknown level IDs rejected
+Nonfinite volume rejected
+Write failure handled without an exception
+Existing version-1 saves remain compatible without finale fields
+Pending finale is valid persistent progress
+Contradictory finale flags safely restore defaults
+LevelData has spawn bindings and timer: Level1
+Spawn bindings are unique: Level1
+LevelData has spawn bindings and timer: Level2
+Spawn bindings are unique: Level2
+LevelData has spawn bindings and timer: Level3
+Spawn bindings are unique: Level3
+LevelData has spawn bindings and timer: EnemyTrial
+Spawn bindings are unique: EnemyTrial
+Original MainMenu starts normally
+Existing Level1 runs directly with its LevelData
+Player retained in Level1
+Existing Input System retained in Level1
+Mobile JUMP/FIRE retained in Level1
+Original spawn object resolves: Level1/Player
+Original spawn object resolves: Level1/Coin1
+Original spawn object resolves: Level1/Coin2
+Original spawn object resolves: Level1/Coin3
+Live data asset change updates actual player motion
+Original shooting creates bullet physics safely
+Data goal is ready for the original portal: Level1
+Original portal retained in Level1
+Existing Level2 runs directly with its LevelData
+Player retained in Level2
+Existing Input System retained in Level2
+Mobile JUMP/FIRE retained in Level2
+Original spawn object resolves: Level2/Enemy
+Original spawn object resolves: Level2/Player
+Original spawn object resolves: Level2/Coin1
+Original spawn object resolves: Level2/Coin2
+Original spawn object resolves: Level2/Coin3
+Original spawn object resolves: Level2/HealthPickup
+Original Level1 portal unlocks and opens Level2
+Data goal is ready for the original portal: Level2
+Original portal retained in Level2
+Existing Level3 runs directly with its LevelData
+Player retained in Level3
+Existing Input System retained in Level3
+Mobile JUMP/FIRE retained in Level3
+Original spawn object resolves: Level3/Player
+Original spawn object resolves: Level3/Coin1
+Original spawn object resolves: Level3/Coin2
+Original spawn object resolves: Level3/Coin3
+Original spawn object resolves: Level3/Enemy
+Original spawn object resolves: Level3/HealthPickup
+Original spawn object resolves: Level3/Boss
+Original Level2 portal unlocks and opens Level3
+Original boss uses its balance asset
+Level3 boss automatically opens EnemyTrial as the campaign finale
+Winning Level3 does not finish the campaign before EnemyTrial
+Pending finale, progress and settings survive disk reload and pause
+Returning to the menu preserves the pending finale
+Separate practice entry remains independent of campaign mode
+All three existing enemy types are retained
+Original enemy state labels remain above the enemies
+Existing decorated ground retained
+Trial mobile controls retained
+Asset-backed fair wind-up and recovery: EnemyShooter2D
+Clear line of sight works: EnemyShooter2D
+Wall blocks sight: EnemyShooter2D
+Off-screen attacks blocked: EnemyShooter2D
+Shooter locks aim
+Shooter waits for its wind-up
+Shooter fires its original projectile and cools down
+Shooter completes its original FSM loop
+Asset-backed fair wind-up and recovery: EnemyCharger2D
+Clear line of sight works: EnemyCharger2D
+Wall blocks sight: EnemyCharger2D
+Off-screen attacks blocked: EnemyCharger2D
+Charger commits after warning
+Charger enters Dash after wind-up
+Charger ends its dash using data duration
+Charger returns after recovery
+Charger completes its original FSM loop
+Asset-backed fair wind-up and recovery: EnemyPatrol
+Clear line of sight works: EnemyPatrol
+Wall blocks sight: EnemyPatrol
+Off-screen attacks blocked: EnemyPatrol
+Patroller enters Chase
+Patroller warns before attack
+Patroller waits for data wind-up
+Patroller recovers after one attack
+Patroller returns after cooldown
+Patroller resumes patrol after returning without seeing the player
+Data goal is ready for the original portal: EnemyTrial
+Original portal retained in EnemyTrial
+Finishing practice does not consume the pending campaign finale
+Continue finale restores campaign mode from saved progress
+Retry preserves finale mode and progress
+Data goal is ready for the original portal: EnemyTrial
+Original portal retained in EnemyTrial
+Victory follows the full Level1-Level2-Level3-EnemyTrial sequence
+Full campaign completion survives disk reload
+Reset Cancel preserves campaign completion
+Confirmed reset clears levels and finale flags
+Data goal is ready for the original portal: EnemyTrial
+Original portal retained in EnemyTrial
+Fresh practice does not unlock or finish the campaign
+Data timer shows retry without crashing
+No runtime errors during integration checks
+
+APK build: SUCCESS
+APK signature: verified with apksigner (v2)
+APK ZIP integrity: PASS
+Compiled sound manager, bank, UI hooks, mixer parameters and all 14 active clips: detected in APK
+Package: com.DefaultCompany.urp_2d
+Version: 1.1 (code 2)
+Min SDK: 25; target SDK: 36
+Architectures: arm64-v8a, armeabi-v7a
+APK bytes: 73732089
+APK SHA-256: f0ea712c2891204afd22690b4dfe0fd7ecfb73c896309af13704b585ca473329
+Existing APK signing certificate matches the Assignment 11 APK: PASS
