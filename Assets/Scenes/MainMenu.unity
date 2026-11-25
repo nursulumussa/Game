@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSound
   audioSource: {fileID: 1534648502}
-  clickSound: {fileID: 8300000, guid: 6054c4bf043b5ee4ca55fc1f1ec545ed, type: 3}
+  clickSound: {fileID: 0}
 --- !u!82 &1534648502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1071,7 +1071,7 @@ AudioSource:
   m_GameObject: {fileID: 1534648500}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5587405080934891263, guid: b3be269b665ed95439b0b0b8138e07d1, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -1422,6 +1422,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 3360315047917914756, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360315047917914756, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360315047917914756, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5587405080934891263, guid: b3be269b665ed95439b0b0b8138e07d1, type: 2}
     - target: {fileID: 7754497486487316997, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
       propertyPath: m_LocalPosition.x
       value: 474.40692

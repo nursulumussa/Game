@@ -110,6 +110,7 @@ public class AdventureUI : MonoBehaviour
     RectTransform Button(Transform parent,string text,Vector2 pos,Vector2 size,UnityAction action)
     {
         var rect=Panel(parent,text,new Color(0.17f,0.34f,0.48f));rect.anchorMin=rect.anchorMax=new Vector2(0.5f,0.5f);rect.sizeDelta=size;rect.anchoredPosition=pos;
+        rect.gameObject.AddComponent<AudioButton>();
         var button=rect.gameObject.AddComponent<Button>();var colors=button.colors;colors.disabledColor=new Color(0.22f,0.23f,0.25f);colors.highlightedColor=new Color(0.5f,0.9f,1);button.colors=colors;button.targetGraphic=rect.GetComponent<Image>();button.onClick.AddListener(action);
         Label(rect,text,Vector2.zero,size,24);return rect;
     }
@@ -118,6 +119,9 @@ public class AdventureUI : MonoBehaviour
         Label(content,title,new Vector2(0,y+30),new Vector2(550,40),23);
         var background=Panel(content,title,new Color(0.2f,0.25f,0.3f));background.anchorMin=background.anchorMax=new Vector2(0.5f,0.5f);background.sizeDelta=new Vector2(500,28);background.anchoredPosition=new Vector2(0,y-10);
         var handle=Panel(background,"Handle",new Color(1,0.6f,0.2f));handle.sizeDelta=new Vector2(32,15);
-        var slider=background.gameObject.AddComponent<Slider>();slider.handleRect=handle;slider.targetGraphic=handle.GetComponent<Image>();slider.direction=Slider.Direction.LeftToRight;slider.value=value;return slider;
+        var slider=background.gameObject.AddComponent<Slider>();slider.handleRect=handle;slider.targetGraphic=handle.GetComponent<Image>();slider.direction=Slider.Direction.LeftToRight;slider.value=value;
+        var readout=Label(content,"",new Vector2(200,y+30),new Vector2(130,35),18);
+        UnityAction<float> display=v=>readout.text=v<=0.0001f?"Mute":AdventureAudio.Decibels(v).ToString("0.0")+" dB";
+        display(value);slider.onValueChanged.AddListener(display);return slider;
     }
 }

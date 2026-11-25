@@ -33,6 +33,7 @@ public class GameSession : MonoBehaviour
         Instance=this;DontDestroyOnLoad(gameObject);Config=GameData.Current;
         if(Config==null) {Debug.LogError("Run Mountain Adventure/Assignment 11/Prepare data first.");enabled=false;return;}
         Save=SaveStore.Load(SaveStore.PathForSave,Config,out var status);SaveStatus=status;
+        AdventureAudio.Ensure();
         UI=gameObject.AddComponent<AdventureUI>();
         SceneManager.sceneLoaded+=Loaded;
     }
@@ -54,7 +55,7 @@ public class GameSession : MonoBehaviour
     {
         if(!Playing)return;
         Remaining=Mathf.Max(0,Remaining-Time.deltaTime);
-        if(Remaining<=0) {Playing=false;UI.ShowFailure();}
+        if(Remaining<=0) {Playing=false;AdventureAudio.Play(SoundEvent.Lose);UI.ShowFailure();}
     }
     public void StartLevel(int id)
     {
@@ -122,13 +123,7 @@ public class GameSession : MonoBehaviour
     }
     public void ApplyAudio()
     {
-        AudioListener.volume=Save.settings.master;
-        foreach(var source in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
-        {
-            var binding=source.GetComponent<SavedAudioVolume>();
-            if(binding==null)binding=source.gameObject.AddComponent<SavedAudioVolume>();
-            binding.Apply(Save.settings);
-        }
+        if(AdventureAudio.Instance!=null)AdventureAudio.Instance.Apply(Save.settings);
     }
     public void ResetProgress() {Save=SaveStore.Defaults(Config);Persist();ApplyAudio();Menu();}
     void OnApplicationPause(bool paused) {if(paused)Persist();}

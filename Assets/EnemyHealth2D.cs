@@ -11,8 +11,9 @@ public class EnemyHealth2D : MonoBehaviour
         BulletDamage bullet = other.GetComponent<BulletDamage>();
         if (bullet == null || !other.name.StartsWith("Bullet")) return;
         other.enabled = false;
+        AdventureAudio.Play(SoundEvent.Hit);
         currentHealth -= bullet.damage;
         Destroy(other.gameObject);
-        if (currentHealth <= 0) Destroy(gameObject);
+        if (currentHealth <= 0) {AdventureAudio.Play(SoundEvent.Death);Destroy(gameObject);}
     }
 }

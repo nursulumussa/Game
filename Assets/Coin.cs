@@ -5,7 +5,6 @@ public class Coin : MonoBehaviour
 {
     public AudioClip coinSound;
     private bool collected;
-    private float Volume => GameData.Current.items.coinSoundVolume * GameSession.Instance.Save.settings.sfx;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,14 +18,7 @@ public class Coin : MonoBehaviour
             {
                 counter.AddCoin();
 
-                if (coinSound != null)
-                {
-                    AudioSource.PlayClipAtPoint(
-                        coinSound,
-                        Camera.main.transform.position,
-                        Volume
-                    );
-                }
+                AdventureAudio.Play(SoundEvent.Pickup);
 
                 Destroy(gameObject);
             }

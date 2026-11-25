@@ -15,6 +15,7 @@ public class BossHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AdventureAudio.Play(SoundEvent.Hit);
         currentHealth -= damage;
 
         Debug.Log("Boss HP: " + currentHealth);
@@ -22,6 +23,7 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Boss defeated!");
+            AdventureAudio.Play(SoundEvent.Death);
 
             GameSession.Instance.BossDefeated();
         }

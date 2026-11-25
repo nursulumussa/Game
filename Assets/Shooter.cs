@@ -26,10 +26,7 @@ public class Shooter : MonoBehaviour
 
         nextShot = Time.time + Stats.shotCooldown;
 
-        if (audioSource != null && shootSound != null)
-        {
-            audioSource.PlayOneShot(shootSound);
-        }
+        AdventureAudio.Play(SoundEvent.Shot);
 
         Vector3 spawnPosition = transform.position
             + new Vector3(direction * Stats.muzzleOffset, 0f, 0f);

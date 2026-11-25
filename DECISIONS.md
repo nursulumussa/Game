@@ -16,3 +16,12 @@
 - 2026-11-19 — Added validated JSON saves, settings, pause/completion saving and confirmed reset. Automated checks cover original scenes, three actual FSM cycles, wall occlusion, off-screen fairness and save failure cases; real phone testing and the student video are still required.
 
 - 2026-11-19 — At the student's request, connected the complete campaign as Level1 → Level2 → Level3 → EnemyTrial → WinScene. Kept a separate practice entry, added persistent unfinished/completed finale flags without breaking existing version-1 saves, and added transition/resume/retry/practice-isolation checks.
+
+
+# Assignment 12 — decisions
+
+- 2026-11-25 — Asked Codex to integrate sound into the existing Mountain Adventure after Assignment 11, retaining the authored campaign, EnemyTrial practice, all three enemy FSMs and JSON saves. Kept the existing local player speed of 8 from the student's balance demonstration.
+- 2026-11-25 — Chose original procedural audio instead of undocumented third-party clips: 12 sound events and two composed loops, with a reproducible Python generator and CC0 source/license entries in README.
+- 2026-11-25 — Replaced listener/source multiplication with exposed Master/Music/SFX mixer dB parameters. Put pause attenuation and lowpass on a child music group so snapshots do not overwrite saved Music volume.
+- 2026-11-25 — The first automated crossfade check exposed a scene-load stall consuming the whole transition. Limited per-frame fade advancement and changed verification to wait for the actual transition in slow batch mode; music decks persist across level loads.
+- 2026-11-25 — Sound integration checks cover real jump/shot calls, three FSM warning entries, mixer routing, saved settings, crossfade overlap, track position, pause/resume and pitch variation. The existing campaign/save/FSM regression suite runs before the APK build. A real phone listening/restart test and the student's own English video are still required.

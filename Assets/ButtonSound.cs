@@ -8,9 +8,6 @@ public class ButtonSound : MonoBehaviour
 
     public void PlayClick()
     {
-        if (audioSource != null && clickSound != null)
-        {
-            audioSource.PlayOneShot(clickSound);
-        }
+        // AudioButton handles pointer and submit once; legacy UnityEvents remain compatible.
     }
 }

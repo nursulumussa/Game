@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (invincible) return;
 
+        AdventureAudio.Play(SoundEvent.Hit);
         currentHealth -= damage;
         UpdateHealthText();
 
@@ -41,6 +42,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            AdventureAudio.Play(SoundEvent.Death);
+            AdventureAudio.Play(SoundEvent.Lose);
             SceneManager.LoadScene(
                 SceneManager.GetActiveScene().name
             );

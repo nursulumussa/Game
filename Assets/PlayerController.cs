@@ -36,10 +36,7 @@ public class PlayerController : MonoBehaviour
 
             grounded = false;
 
-            if (audioSource != null && jumpSound != null)
-            {
-                audioSource.PlayOneShot(jumpSound);
-            }
+            AdventureAudio.Play(SoundEvent.Jump);
         }
     }
 

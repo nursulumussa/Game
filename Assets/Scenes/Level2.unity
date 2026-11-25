@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24858a5172fa5814b81363a7b6bc4ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
+  coinSound: {fileID: 0}
 --- !u!58 &451565993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   audioSource: {fileID: 491300468}
-  jumpSound: {fileID: 8300000, guid: ba59bd997d0a6e542a64518e32248e31, type: 3}
+  jumpSound: {fileID: 0}
 --- !u!114 &491300465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
   bulletPrefab: {fileID: 3474705324319805403, guid: 43e838cdec392314cbaa30ab4bf61c23, type: 3}
   audioSource: {fileID: 491300468}
-  shootSound: {fileID: 8300000, guid: 572c2146d22ac1049bf56e73f08f04b0, type: 3}
+  shootSound: {fileID: 0}
 --- !u!114 &491300467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,7 +811,7 @@ AudioSource:
   m_GameObject: {fileID: 491300459}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5587405080934891263, guid: b3be269b665ed95439b0b0b8138e07d1, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -2193,7 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24858a5172fa5814b81363a7b6bc4ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
+  coinSound: {fileID: 0}
 --- !u!58 &911775707
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3347,7 +3347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24858a5172fa5814b81363a7b6bc4ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  coinSound: {fileID: 8300000, guid: 0ec999669b764274387464be4f1e1b02, type: 3}
+  coinSound: {fileID: 0}
 --- !u!58 &1331293478
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3895,6 +3895,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 3360315047917914756, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360315047917914756, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360315047917914756, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5587405080934891263, guid: b3be269b665ed95439b0b0b8138e07d1, type: 2}
     - target: {fileID: 7754497486487316997, guid: af26798accb628b4aafc5a03fae4f992, type: 3}
       propertyPath: m_LocalPosition.x
       value: 474.40692

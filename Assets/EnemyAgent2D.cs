@@ -120,7 +120,12 @@ public abstract class EnemyAgent2D : MonoBehaviour
             waypointIndex = (waypointIndex + 1) % waypoints.Length;
     }
     protected void Enter(string label)
-    { stateTime = 0f; shownState = label; if (stateText != null) stateText.text = label; }
+    {
+        stateTime = 0f; shownState = label; if (stateText != null) stateText.text = label;
+        if(label.EndsWith("WindUp") || label.EndsWith("Aim"))
+            AdventureAudio.Play(this is EnemyShooter2D?SoundEvent.ShooterWindup:this is EnemyCharger2D?SoundEvent.ChargerWindup:SoundEvent.GuardWindup);
+        else if(label.EndsWith("Attack") || label.EndsWith("Shoot") || label.EndsWith("Dash"))AdventureAudio.Play(SoundEvent.EnemyAttack);
+    }
     protected void Tick(bool warning)
     {
         stateTime += Time.deltaTime;
