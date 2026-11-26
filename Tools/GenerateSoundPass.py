@@ -1,4 +1,4 @@
-"""Original procedural audio for Mountain Adventure, created with Codex assistance.
+"""Original procedural audio for Mountain Adventure.
 No samples, recordings, third-party compositions, or third-party assets are used.
 Generated WAV files and this generator are dedicated under CC0-1.0.
 Run with Python 3 standard library. Fixed seed gives reproducible audio.

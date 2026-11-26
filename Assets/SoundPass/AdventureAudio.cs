@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Two persistent decks preserve playback across authored scene loads.
+
 public class AdventureAudio : MonoBehaviour
 {
     public static AdventureAudio Instance {get;private set;}
@@ -66,13 +66,11 @@ public class AdventureAudio : MonoBehaviour
         int selected=gameplay?1:0;if(selected==target)return;
         target=selected;Fade=0;
         for(int i=0;i<2;i++){from[i]=decks[i].volume;to[i]=i==target?Bank.musicGain:0;}
-        // Never restart a deck during level changes or retries.
         if(!decks[target].isPlaying)decks[target].Play();
     }
     void Update()
     {
         if(decks==null)return;
-        // Loading a scene can stall the first frame. Do not consume the entire fade in that frame.
         Fade=Mathf.Min(1,Fade+Mathf.Min(Time.unscaledDeltaTime,0.05f)/Mathf.Max(0.01f,Bank.crossfadeSeconds));
         for(int i=0;i<2;i++)decks[i].volume=Mathf.Lerp(from[i],to[i],Mathf.SmoothStep(0,1,Fade));
         if(Fade<1 && decks[0].volume>.01f && decks[1].volume>.01f)CrossfadeOverlapFrames++;

@@ -49,7 +49,7 @@ effects. Win/lose cues retain their composed pitch.
 ### Audio sources and licenses
 
 **All active Assignment 12 audio is original procedural synthesis, created for this
-project with Codex assistance.** Source/generator for every row:
+project.** Source/generator for every row:
 [`Tools/GenerateSoundPass.py`](Tools/GenerateSoundPass.py). No third-party samples,
 recordings or compositions were used. Generated audio and the generator are dedicated
 under [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
